@@ -13,7 +13,7 @@ function App() {
           <div className='navbar-fixed-top navbar-inverse'>
             <Navbar />
           </div>
-          <div className='pt-5 mt-2' style={{ minHeight: "200vh" }}>
+          <div className='pt-5 mt-2'>
             asdfawedfawedfaWedf
           </div>
         </userContext.Provider>
