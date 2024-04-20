@@ -1,10 +1,13 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import {userContext} from '../App'
 const Navbar = () => {
+    const admin = useContext(userContext)
+
     return (
         <nav class="navbar w-100 border m-0">
             <div class="d-flex w-100 justify-content-between align-items-center px-2">
                 <div className='text-white'>Theme/Logo</div>
+                <div className='text-white py-1 adminTag'>{admin}</div>
                 <div className='show1000px'>
                     <button className='btn btn-primary mx-1'>About</button>
                     <button className='btn btn-primary mx-1'>Contact</button>

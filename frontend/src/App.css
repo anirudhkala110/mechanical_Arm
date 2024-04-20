@@ -33,3 +33,22 @@ html {
     display: none;
   }
 }
+
+.adminTag {
+  border-bottom: 1px solid;
+  border-color: transparent;
+  transition: .2s ease-in-out;
+  padding-left: 0px;
+  padding-right: 0px;
+  background: linear-gradient(rgba(86, 77, 77, 0.023), rgba(40, 35, 35, 0.286), rgba(0, 0, 0, 0));
+  cursor: pointer;
+}
+
+.adminTag:hover {
+  border-bottom: 2px solid;
+  border-color: rgb(0, 110, 255);
+  background: linear-gradient(rgba(0, 0, 0, 0.618), rgba(0, 0, 0, 0.722), rgba(57, 54, 54, 0));
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
+}
