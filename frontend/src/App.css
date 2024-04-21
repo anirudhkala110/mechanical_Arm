@@ -111,7 +111,7 @@ html {
   display: none !important;
 }
 
-@media only screen and (max-width:750px) {
+@media only screen and (max-width:1000px) {
   .sideBar {
     display: none;
   }
@@ -120,6 +120,8 @@ html {
     display: block;
   }
 }
+
+
 
 /* sideBar */
 
@@ -537,44 +539,52 @@ figure:hover+span {
   min-width: 350px !important;
   width: 100%;
 }
+
 @media only screen and (max-width:1000px) {
   .imageSet {
-    width: 87vw !important ;
+    width: 87vw !important;
     /* height: 200px !important; */
   }
+
   .hover14 figure {
     position: relative;
     width: 60vw;
   }
 }
+
 @media only screen and (max-width:750px) {
   .imageSet {
-    width: 100vw !important ;
+    width: 100vw !important;
     /* height: 200px !important; */
   }
+
   .hover14 figure {
     position: relative;
     width: 85vw;
   }
 }
+
 @media only screen and (max-width:575px) {
   .imageSet {
-    width: 100vw !important ;
+    width: 100vw !important;
     /* height: 200px !important; */
   }
+
   .hover14 figure {
     position: relative;
     width: 80vw;
   }
 }
+
 @media only screen and (max-width:405px) {
   .imageSet {
-    width: 350px !important ;
+    width: 350px !important;
     /* height: 200px !important; */
   }
+
   .hover14 figure {
     position: relative;
-    width: 300px !important ;
+    width: 300px !important;
   }
 }
 
@@ -623,6 +633,7 @@ figure:hover+span {
 .mainBase::-webkit-scrollbar {
   width: 5px;
 }
+
 .mainBase::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px rgba(255, 255, 255, 0);
   border-radius: 10px;

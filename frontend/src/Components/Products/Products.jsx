@@ -79,9 +79,11 @@ const Products = () => {
                     </div>
                     <hr />
                 </div>
-                <button className='sideBarButton btn btn-primary' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2" aria-controls="offcanvasExample2" style={{ position: 'fixed', zIndex: '100' }}>
-                    <i class="bi bi-arrow-left-right fw-bolder fs-5"></i>
-                </button>
+                <div className='sideBarButton'>
+                    <button className=' btn btn-primary' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2" aria-controls="offcanvasExample2" style={{ position: 'fixed', zIndex: '100' }}>
+                        <i class="bi bi-arrow-left-right fw-bolder fs-5"></i>
+                    </button>
+                </div>
                 <div>
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabel">
                         <div class="offcanvas-header">
