@@ -1,6 +1,33 @@
 import React from 'react'
+import arm1 from '../../Images/Arm1.jpeg'
+import arm2 from '../../Images/arm2.jpeg'
+import arm3 from '../../Images/arm3.jpeg'
+import arm4 from '../../Images/arm4.jpeg'
+import arm5 from '../../Images/arm5.jpeg'
 
-const Home = () => {
+const data0 = [
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
+]
+const Products = () => {
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
             <div>
@@ -52,7 +79,7 @@ const Home = () => {
                     </div>
                     <hr />
                 </div>
-                <button className='sideBarButton btn btn-primary' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2" aria-controls="offcanvasExample2" style={{ position: 'fixed',zIndex:'100' }}>
+                <button className='sideBarButton btn btn-primary' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2" aria-controls="offcanvasExample2" style={{ position: 'fixed', zIndex: '100' }}>
                     <i class="bi bi-arrow-left-right fw-bolder fs-5"></i>
                 </button>
                 <div>
@@ -121,24 +148,60 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className='mainBasev ms-1 bg-white border'>
-                <div className='row'>
-                    <div className='col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3'>
-                        data
-                    </div>
-                    <div className='col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3'>
-                        data
-                    </div>
-                    <div className='col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3'>
-                        data
-                    </div>
-                    <div className='col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3'>
-                        data
-                    </div>
+            <div className='mainBase ms-1 bg-white p-2'>
+                <center className='fs-3 fw-semibold my-2 pb-2' style={{ position: '', zIndex: '100' }}>Products</center>
+                <hr className='' />
+                <div className='row p-2'>
+                    {
+                        data0.map((data, i) =>
+                        (<div className='col-sm-12  d-flex justify-content-center border col-md-12 col-lg-4 col-xl-4 col-xxl-4' key={i}>
+                            <div class="hover14 column">
+                                <div>
+                                    <figure className='rounded bg-body-secondary'>{data.img ? <img className='imageSet' src={data.img} /> : 'Loading . . .'}</figure>
+                                    <span>Data</span>
+                                </div>
+                                <div className="ms-0 me-1">
+                                    {/* <table className='table table-striped'>
+                                        <thead>
+                                            <tr>
+                                                <th>Key</th>
+                                                <th>Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Mac Arm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Location</td>
+                                                <td>Delhi</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Uploaded By</td>
+                                                <td>Anirudh Kala</td>
+                                            </tr>
+                                            <tr>
+                                                More...
+                                            </tr>
+                                        </tbody>
+                                        </table> */}
+                                    <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ position: "absolute", marginLeft: '0px', fontSize: '12px' }}>{i + 1}</button>
+                                    <ul className='ps-4' style={{ listStyle: 'none' }}>
+                                        <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
+                                        <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
+                                        <li className='mb-1 py-1 ps-2 '><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
+                                        <button className='btn btn-info'>More . . .</button>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>)
+                        )
+                    }
                 </div>
             </div>
         </div>
     )
 }
 
-export default Home
+export default Products
