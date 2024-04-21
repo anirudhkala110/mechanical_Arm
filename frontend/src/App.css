@@ -470,6 +470,7 @@ figure:hover+span {
 /* Shine */
 .hover14 figure {
   position: relative;
+  width: 320px;
 }
 
 .hover14 figure::before {
@@ -531,7 +532,20 @@ figure:hover+span {
 }
 
 .imageSet {
-  width: 400px !important;
+  width: 200px !important;
+  /* height: 200px !important; */
+  min-width: 350px;
+  width: 100%;
+}
+@media only screen and (max-width:1000px) {
+  .imageSet {
+    width: 87vw !important ;
+    /* height: 200px !important; */
+  }
+  .hover14 figure {
+    position: relative;
+    width: 60vw;
+  }
 }
 
 @-webkit-keyframes circle {

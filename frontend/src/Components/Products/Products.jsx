@@ -154,45 +154,22 @@ const Products = () => {
                 <div className='row p-2'>
                     {
                         data0.map((data, i) =>
-                        (<div className='col-sm-12  d-flex justify-content-center border col-md-12 col-lg-4 col-xl-4 col-xxl-4' key={i}>
-                            <div class="hover14 column">
-                                <div>
-                                    <figure className='rounded bg-body-secondary'>{data.img ? <img className='imageSet' src={data.img} /> : 'Loading . . .'}</figure>
-                                    <span>Data</span>
-                                </div>
-                                <div className="ms-0 me-1">
-                                    {/* <table className='table table-striped'>
-                                        <thead>
-                                            <tr>
-                                                <th>Key</th>
-                                                <th>Value</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Mac Arm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Location</td>
-                                                <td>Delhi</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Uploaded By</td>
-                                                <td>Anirudh Kala</td>
-                                            </tr>
-                                            <tr>
-                                                More...
-                                            </tr>
-                                        </tbody>
-                                        </table> */}
-                                    <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ position: "absolute", marginLeft: '0px', fontSize: '12px' }}>{i + 1}</button>
-                                    <ul className='ps-4' style={{ listStyle: 'none' }}>
-                                        <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
-                                        <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
-                                        <li className='mb-1 py-1 ps-2 '><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
-                                        <button className='btn btn-info'>More . . .</button>
-                                    </ul>
+                        (<div className='col-sm-12  d-flex justify-content-center border col-md-12 col-lg-6 col-xl-6 col-xxl-4' key={i}>
+                            <div className='col-sm-12  d-flex justify-content-center col-md-12 col-lg-3 col-xl-3 col-xxl-3'>
+                                <div class="hover14 column">
+                                    <div className='bg-success'>
+                                        <figure className='rounded bg-body-secondary'>{data.img ? <img className='imageSet' src={data.img} /> : 'Loading . . .'}</figure>
+                                        <span>Data</span>
+                                    </div>
+                                    <div className="ms-0 ps-0">
+                                        <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ position: "absolute", marginLeft: '0px', fontSize: '12px' }}>{i + 1}</button>
+                                        <ul className='ps-4' style={{ listStyle: 'none' }}>
+                                            <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
+                                            <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
+                                            <li className='mb-1 py-1 ps-2 '><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
+                                            <button className='btn btn-info'>More . . .</button>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>)
