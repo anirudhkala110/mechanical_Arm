@@ -5,7 +5,7 @@ const Navbar = () => {
     const admin = useContext(userContext);
 
     return (
-        <nav className="navbar w-100 border m-0">
+        <nav className="navbar w-100 m-0">
             <div className="d-flex w-100 justify-content-between align-items-center px-5 mx-2">
                 <div className='text-white'>Theme/Logo</div>
                 <div className='text-white py-1 adminTag'>{admin}</div>
@@ -28,7 +28,7 @@ const Navbar = () => {
                             </button>
                             <ul className="dropdown-menu px-1" aria-labelledby="dropdownMenuButton">
                                 <button className='btn btn-primary mt-1' style={{ width: '100%' }}>Profile</button>
-                                <button className='btn btn-primary mt-1' style={{ width: '100%' }}>Dashboard</button>
+                                {/* <button className='btn btn-primary mt-1' style={{ width: '100%' }}>Dashboard</button> */}
                                 <button className='btn btn-success mt-1' style={{ width: '100%' }}>Login</button>
                                 <button className='btn btn-info mt-1' style={{ width: '100%' }}>Sign Up</button>
                                 <button className='btn btn-danger mt-1' style={{ width: '100%' }}>Logout</button>
@@ -44,9 +44,10 @@ const Navbar = () => {
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                     <div className="offcanvas-header">
                         <h5 className="offcanvas-title" id="offcanvasExampleLabel">Logo</h5>
-                        <button type="button" className="btn-close text-reset text-dark fs-1 fw-bolder" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <button type="button" className="btn-close text-reset text-dark fs-3 fw-bolder" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <div className="offcanvas-body border" style={{ minHeight: "500px" }}>
+                    <hr/>
+                    <div className="offcanvas-body " style={{ minHeight: "500px" }}>
                         <div className='btn btn-primary my-1 w-100 rounded-0 border'>About</div>
                         <div className='btn btn-primary my-1 w-100 rounded-0 border'>Contact</div>
                         <div className='btn btn-primary my-1 w-100 rounded-0 border'>Services</div>
