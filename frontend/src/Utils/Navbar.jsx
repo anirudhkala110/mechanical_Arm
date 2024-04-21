@@ -64,8 +64,10 @@ const Navbar = () => {
                     </div>
                     <hr />
                     <div className="offcanvas-body " style={{ minHeight: "500px" }}>
+                        <Link to='/'><button className="btn btn-primary my-1 w-100 rounded-0 border" type="button" >Home</button></Link>
                         <Link to='/about' className='btn btn-primary my-1 w-100 rounded-0 border'>About</Link>
                         <Link to='/contact-us' className='btn btn-primary my-1 w-100 rounded-0 border'>Contact</Link>
+                        <Link to='/all-products'><button className="btn btn-primary my-1 w-100 rounded-0 border" type="button" >Products</button></Link>
                         <Link to='/services' className='btn btn-primary my-1 w-100 rounded-0 border'>Services</Link>
                         <Link to={`/profile/${admin}`} className='btn btn-primary my-1 w-100 rounded-0 border'>Profile</Link>
                         <Link to='/dashboard' className='btn btn-primary my-1 w-100 rounded-0 border'>Dashboard</Link>
