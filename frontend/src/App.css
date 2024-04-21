@@ -534,7 +534,7 @@ figure:hover+span {
 .imageSet {
   width: 200px !important;
   /* height: 200px !important; */
-  min-width: 350px;
+  min-width: 350px !important;
   width: 100%;
 }
 @media only screen and (max-width:1000px) {
@@ -545,6 +545,36 @@ figure:hover+span {
   .hover14 figure {
     position: relative;
     width: 60vw;
+  }
+}
+@media only screen and (max-width:750px) {
+  .imageSet {
+    width: 100vw !important ;
+    /* height: 200px !important; */
+  }
+  .hover14 figure {
+    position: relative;
+    width: 85vw;
+  }
+}
+@media only screen and (max-width:575px) {
+  .imageSet {
+    width: 100vw !important ;
+    /* height: 200px !important; */
+  }
+  .hover14 figure {
+    position: relative;
+    width: 80vw;
+  }
+}
+@media only screen and (max-width:405px) {
+  .imageSet {
+    width: 350px !important ;
+    /* height: 200px !important; */
+  }
+  .hover14 figure {
+    position: relative;
+    width: 300px !important ;
   }
 }
 
