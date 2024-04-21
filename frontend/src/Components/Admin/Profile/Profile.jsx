@@ -1,9 +1,11 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 const Profile = () => {
-  return (
-    <div>Profile</div>
-  )
+    const { user } = useParams()
+    return (
+        <div>Profile : {user}</div>
+    )
 }
 
 export default Profile
