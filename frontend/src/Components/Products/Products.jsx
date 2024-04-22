@@ -163,7 +163,7 @@ const Products = () => {
                                         <figure className='rounded bg-body-secondary'>{data.img ? <img className='imageSet' src={data.img} /> : 'Loading . . .'}</figure>
                                         <span>Data</span>
                                     </div>
-                                    <div className="ms-0 ps-0 bg-body-secondary">
+                                    <div className="ms-0 ps-2 bg-body-secondary">
                                         <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{i + 1}</button>
                                         <ul className='ps-4' style={{ listStyle: 'none' }}>
                                             <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
