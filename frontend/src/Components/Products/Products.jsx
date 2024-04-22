@@ -156,8 +156,8 @@ const Products = () => {
                 <div className='row p-2'>
                     {
                         data0.map((data, i) =>
-                        (<div className='col-sm-12  d-flex justify-content-center border col-md-12 col-lg-6 col-xl-6 col-xxl-4' key={i}>
-                            <div className='col-sm-12  d-flex justify-content-center col-md-12 col-lg-3 col-xl-3 col-xxl-3'>
+                        (<div className='col-sm-12 pb-2 d-flex justify-content-center border col-md-12 col-lg-6 col-xl-6 col-xxl-4' key={i}>
+                            <div className='col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3'>
                                 <div class="hover14 column">
                                     <div className=''>
                                         <figure className='rounded bg-body-secondary'>{data.img ? <img className='imageSet' src={data.img} /> : 'Loading . . .'}</figure>
