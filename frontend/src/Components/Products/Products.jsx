@@ -160,7 +160,7 @@ const Products = () => {
                             <div className=''>
                                 <div class="hover14 column">
                                     <div className=''>
-                                        <figure className='rounded bg-body-secondary'>{data.img ? <img className='imageSet' src={data.img} /> : 'Loading . . .'}</figure>
+                                        <figure className='rounded bg-body-secondary w-100'>{data.img ? <img className='imageSet' src={data.img} /> : 'Loading . . .'}</figure>
                                         <span>Data</span>
                                     </div>
                                     <div className="ms-0 ps-2 bg-body-secondary">
