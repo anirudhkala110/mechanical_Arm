@@ -164,7 +164,7 @@ const Products = () => {
                                         <span>Data</span>
                                     </div>
                                     <div className="ms-0 ps-0">
-                                        <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ position: "absolute", marginLeft: '0px', fontSize: '12px' }}>{i + 1}</button>
+                                        <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{i + 1}</button>
                                         <ul className='ps-4' style={{ listStyle: 'none' }}>
                                             <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
                                             <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
