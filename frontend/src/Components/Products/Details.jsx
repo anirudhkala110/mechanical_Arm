@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from "react-router-dom";
 import arm1 from '../../Images/Arm1.jpeg'
 import arm2 from '../../Images/arm2.jpeg'
 import arm3 from '../../Images/arm3.jpeg'
@@ -28,6 +29,7 @@ const data0 = [
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
 ]
 const Products = () => {
+    const {id} = useParams()
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
             <div>
@@ -101,8 +103,11 @@ const Products = () => {
                     </div>
                 </div>
               <div>
-                <div className='container'>
-                  edit it
+                <div className='container d-flex align-items-start justify-content-center'>
+                    <div>
+                        {id}
+                    </div>
+                  
                 </div>
               </div>
 
