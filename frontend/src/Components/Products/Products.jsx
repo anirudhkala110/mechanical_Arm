@@ -4,7 +4,9 @@ import arm2 from '../../Images/arm2.jpeg'
 import arm3 from '../../Images/arm3.jpeg'
 import arm4 from '../../Images/arm4.jpeg'
 import arm5 from '../../Images/arm5.jpeg'
-import {Link} from 'react-router-dom'
+
+import { Link } from 'react-router-dom'
+
 
 const data0 = [
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
@@ -157,12 +159,25 @@ const Products = () => {
                 <div className='row p-2'>
                     {
                         data0.map((data, id) =>
-                        (<div className='col-sm-12 pb-2 d-flex justify-content-center border col-md-12 col-lg-6 col-xl-6 col-xxl-4' key={id}>
-                            <div className=''>
-                                <div class="hover14 column">
-                                    <div className=''>
-                                        <figure className='rounded bg-body-secondary w-100'>{data.img ? <img className='imageSet' src={data.img} /> : 'Loading . . .'}</figure>
-                                        <span>Data</span>
+                        (<div className='col-sm-12 py-2 rounded-3 d-flex justify-content-center border col-md-12 col-lg-6 col-xl-6 col-xxl-4' key={id}>
+                            <div className='d-flex w-100 justify-content-center border border-3'>
+                                <div class="hover14 w-100 bg-body-secondary">
+                                    <div className='w-100'>
+                                        <figure className='rounded bg-body-secondary w-100'>
+                                            {data.img ? <img className='w-100' src={data.img} /> : <center className="loadingBase"><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div></center>}
+                                            <center className="loadingBase">
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                                <div className="wave"></div>
+                                            </center>
+                                        </figure>
                                     </div>
                                     <div className="ms-0 ps-2 bg-body-secondary">
                                         <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{id + 1}</button>
@@ -170,7 +185,10 @@ const Products = () => {
                                             <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
                                             <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
                                             <li className='mb-1 py-1 ps-2 '><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
-                                           <Link to={`/detail/${id}/${data.machineName}/${data.location}/${data.uploadedBy}`}> <button className='btn btn-info'>More . . .</button></Link>
+
+
+                                            <Link to={`/detail/${id}/${data.machineName}/${data.location}/${data.uploadedBy}`}> <button className='btn btn-info'>More . . .</button></Link>
+
                                         </ul>
                                     </div>
                                 </div>

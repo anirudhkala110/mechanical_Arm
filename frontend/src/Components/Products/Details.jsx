@@ -28,8 +28,9 @@ const data0 = [
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
 ]
-const Products = () => {
-    const {id, uploadedBy, machineName, location} = useParams()
+
+const Details = () => {
+        const {id, uploadedBy, machineName, location} = useParams()
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
             <div className='w-100 border pb-2'>
@@ -119,4 +120,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default Details
