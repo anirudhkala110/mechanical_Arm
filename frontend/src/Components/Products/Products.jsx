@@ -159,12 +159,12 @@ const Products = () => {
                 <div className='row p-2'>
                     {
                         data0.map((data, id) =>
-                        (<div className='col-sm-12 py-2 rounded-3 d-flex justify-content-center border col-md-12 col-lg-6 col-xl-6 col-xxl-4' key={id}>
-                            <div className='d-flex w-100 justify-content-center border border-3'>
-                                <div class="hover14 w-100 bg-body-secondary">
+                        (<div className='col-sm-12 py-2 rounded-3 d-flex justify-content-center col-md-6 col-lg-6 col-xl-4 col-xxl-3' key={id}>
+                            <div className='d-flex w-100 justify-content-center productSample border '>
+                                <div class="hover14 w-100">
                                     <div className='w-100'>
                                         <figure className='rounded bg-body-secondary w-100'>
-                                            {data.img ? <img className='w-100' src={data.img} /> : <center className="loadingBase"><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div></center>}
+                                            {data.img ? <img className='w-100' src={data.img} style={{minHeight:'200px'}} /> : <center className="loadingBase"><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div></center>}
                                             <center className="loadingBase">
                                                 <div className="wave"></div>
                                                 <div className="wave"></div>
@@ -179,8 +179,8 @@ const Products = () => {
                                             </center>
                                         </figure>
                                     </div>
-                                    <div className="ms-0 ps-2 bg-body-secondary">
-                                        <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{id + 1}</button>
+                                    <div className="ms-0 ps-2 bg-light">
+                                        <button className='px-2 rounded-circle bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{id + 1}</button>
                                         <ul className='ps-4' style={{ listStyle: 'none' }}>
                                             <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
                                             <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>

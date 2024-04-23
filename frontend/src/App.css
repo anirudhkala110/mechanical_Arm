@@ -545,6 +545,7 @@ figure:hover+span {
   width: 320px;
   z-index: 10;
 }
+
 .hover14_load center {
   position: relative;
   width: 320px;
@@ -565,7 +566,7 @@ figure:hover+span {
   transform: skewX(-25deg);
 }
 
-.hover14_load::before{
+.hover14_load::before {
   position: absolute;
   top: 0;
   left: -75%;
@@ -587,6 +588,7 @@ figure:hover+span {
   -webkit-animation: shine .75s;
   animation: shine .75s;
 }
+
 .hover14_load {
   -webkit-animation: shine .75s;
   animation: shine .75s;
@@ -747,3 +749,21 @@ figure:hover+span {
 }
 
 /* mainBase */
+
+/* Smaple Product */
+
+.productSample {
+  transition: .2s ease-in-out;
+  cursor: pointer;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.productSample:hover {
+  transform: scale(1.02);
+  box-shadow: 5px 5px 12px 2px #0000002b;
+
+}
+
+/* Smaple Product */
