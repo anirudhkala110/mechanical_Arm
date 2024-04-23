@@ -39,7 +39,7 @@ function App() {
                 <Route exact path='/login' element={<Login />} />
                 <Route exact path='/register' element={<Register />} />
                 <Route exact path='/dashboard' element={<DashBoard />} />
-  <Route exact path='/detail/:id/:data.machineName/:data.location/:data.uploadedBy' element={<Details />} />
+  <Route exact path='/detail/:id/:machineName/:location/:uploadedBy' element={<Details />} />
 
                 <Route path='*' element={<PageNoteFound />} />
               </Routes>
