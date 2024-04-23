@@ -105,7 +105,8 @@ const Products = () => {
               <div>
                 <div className='container d-flex align-items-start justify-content-center'>
                     <div>
-                        {id}
+                        Id for the given data is: {id}<hr/>
+                        Name of uploader is: Anirudh Kala 
                     </div>
                   
                 </div>
