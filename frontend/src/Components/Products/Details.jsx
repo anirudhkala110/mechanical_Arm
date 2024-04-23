@@ -104,7 +104,7 @@ const Products = () => {
                 </div>
               <div>
                 <div className='container d-flex align-items-start justify-content-center'>
-                    <div>
+                    <div className='container px-2'>
                         Id for the given data is: {id}<hr/>
                         Name of uploader is: {id}, {uploadedBy}, {machineName},{ location} 
                     </div>
