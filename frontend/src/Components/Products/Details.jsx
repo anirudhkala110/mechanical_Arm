@@ -30,7 +30,7 @@ const data0 = [
 ]
 
 const Details = () => {
-        const {id, uploadedBy, machineName, location} = useParams()
+    const { id, uploadedBy, machineName, location } = useParams()
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
             <div className='w-100 border pb-2'>
@@ -103,19 +103,34 @@ const Details = () => {
                         </div>
                     </div>
                 </div>
-              <div>
-                <div className='container w-100 d-flex align-items-start justify-content-center'>
-                    <div className='container w-100 bg-white shadow border rounded-3 px-2'>
-                        <center className='fs-3 fw-semibold alert aalert-success'>Detail of {machineName}</center>
-                        Id for the given data is: {id}<hr/>
-                        Name of uploader is: {id}, {uploadedBy}, {machineName},{ location} 
+                <div>
+                    <div className='container w-100 d-flex align-items-start justify-content-center'>
+                        <div className='container w-100 bg-white shadow border rounded-3 px-2'>
+                            <center className='fs-3 fw-semibold alert aalert-success'>Detail of {machineName}</center>
+                            <hr />
+                            {
+                                data0.map((data, i) => (
+                                    <div style={{ display: `${id == i ? 'block' : 'none'}` }}>
+                                        <img src={data.img} className="rounded" style={{ maxWidth: "500px" }} />
+                                        <div>
+                                            <div>
+                                                <ul>
+                                                    <li><strong>Uploaded By : </strong>{data.uploadedBy}</li>
+                                                    <li><strong>Location &nbsp;&nbsp; : </strong>{data.location}</li>
+                                                    <li><strong>Machine Name: </strong>{data.machineName}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+
                     </div>
-                  
                 </div>
-              </div>
 
             </div>
-            
+
         </div>
     )
 }

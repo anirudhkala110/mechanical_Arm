@@ -753,7 +753,7 @@ figure:hover+span {
 /* Smaple Product */
 
 .productSample {
-  transition: .2s ease-in-out;
+  transition: .1s ease-in-out;
   cursor: pointer;
   border-top-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -762,7 +762,7 @@ figure:hover+span {
 
 .productSample:hover {
   transform: scale(1.02);
-  box-shadow: 5px 5px 12px 2px #0000002b;
+  box-shadow: 5px 5px 12px 2px #0000005e;
 
 }
 
