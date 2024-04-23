@@ -170,7 +170,7 @@ const Products = () => {
                                             <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
                                             <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
                                             <li className='mb-1 py-1 ps-2 '><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
-                                           <Link to={`/detail/${id}`}> <button className='btn btn-info'>More . . .</button></Link>
+                                           <Link to={`/detail/${id}/${data.machineName}/${data.location}/${data.uploadedBy}`}> <button className='btn btn-info'>More . . .</button></Link>
                                         </ul>
                                     </div>
                                 </div>
