@@ -29,7 +29,7 @@ const data0 = [
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
 ]
 const Products = () => {
-    const {id} = useParams()
+    const {id, uploadedBy, machineName, location} = useParams()
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
             <div>
@@ -106,7 +106,7 @@ const Products = () => {
                 <div className='container d-flex align-items-start justify-content-center'>
                     <div>
                         Id for the given data is: {id}<hr/>
-                        Name of uploader is: Anirudh Kala 
+                        Name of uploader is: {id}, {uploadedBy}, {machineName},{ location} 
                     </div>
                   
                 </div>
