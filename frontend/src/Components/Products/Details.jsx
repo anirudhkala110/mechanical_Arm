@@ -111,7 +111,7 @@ const Details = () => {
                             {
                                 data0.map((data, i) => (
                                     <div style={{ display: `${id == i ? 'block' : 'none'}` }}>
-                                        <img src={data.img} className="rounded" style={{ maxWidth: "500px" }} />
+                                        <img src={data.img} className="rounded w-100" style={{ maxWidth: "500px",maxHeight:'300px' }} />
                                         <div>
                                             <div>
                                                 <ul>
