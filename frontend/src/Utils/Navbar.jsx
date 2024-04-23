@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { userContext } from '../App';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import logo from '../Images/Logo.jpg'
 
 const Navbar = () => {
     const admin = useContext(userContext);
@@ -12,7 +13,11 @@ const Navbar = () => {
     return (
         <nav className="navbar w-100 m-0">
             <div className="d-flex w-100 justify-content-between align-items-center px-5 mx-2">
-                <div className='text-white'>Theme/Logo</div>
+                <div className='text-white'>
+                    <img src={logo} width={40} className='rounded-2' />
+                    &nbsp;
+                    <strong>RoboShop</strong>
+                </div>
                 <div className='show1000px'>
                     <div className='d-flex'>
                         <div className='text-white py-1 adminTag'>{admin}</div>
