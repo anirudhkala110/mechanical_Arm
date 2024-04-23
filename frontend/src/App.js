@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import PageNoteFound from './Utils/PageNoteFound';
 import Home from './Components/Home/Home';
 import Products from './Components/Products/Products';
+import Details from './Components/Products/Details';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import Services from './Components/Services/Services';
@@ -38,6 +39,7 @@ function App() {
                 <Route exact path='/login' element={<Login />} />
                 <Route exact path='/register' element={<Register />} />
                 <Route exact path='/dashboard' element={<DashBoard />} />
+  <Route exact path='/detail/:id' element={<Details />} />
 
                 <Route path='*' element={<PageNoteFound />} />
               </Routes>
