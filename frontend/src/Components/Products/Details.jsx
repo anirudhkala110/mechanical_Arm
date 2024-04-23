@@ -32,7 +32,7 @@ const Products = () => {
     const {id, uploadedBy, machineName, location} = useParams()
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
-            <div className='w-100 border'>
+            <div className='w-100 border pb-2'>
                 <div className='sideBarButtonDetailsPage'>
                     <button className=' btn btn-primary' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2" aria-controls="offcanvasExample2" style={{ position: 'fixed', zIndex: '100' }}>
                         <i class="bi bi-arrow-left-right fw-bolder fs-5"></i>
