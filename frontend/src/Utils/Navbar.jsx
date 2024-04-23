@@ -57,7 +57,7 @@ const Navbar = () => {
                         <i className="bi bi-list-nested"></i>
                     </button>
                 </div>
-                <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                     <div className="offcanvas-header">
                         <h5 className="offcanvas-title" id="offcanvasExampleLabel">Logo</h5>
                         <button type="button" className="btn-close text-reset text-dark fs-3 fw-bolder" data-bs-dismiss="offcanvas" aria-label="Close"></button>
