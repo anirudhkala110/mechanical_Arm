@@ -4,6 +4,7 @@ import arm2 from '../../Images/arm2.jpeg'
 import arm3 from '../../Images/arm3.jpeg'
 import arm4 from '../../Images/arm4.jpeg'
 import arm5 from '../../Images/arm5.jpeg'
+import {Link} from 'react-router-dom'
 
 const data0 = [
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
@@ -155,8 +156,8 @@ const Products = () => {
                 <hr className='' />
                 <div className='row p-2'>
                     {
-                        data0.map((data, i) =>
-                        (<div className='col-sm-12 pb-2 d-flex justify-content-center border col-md-12 col-lg-6 col-xl-6 col-xxl-4' key={i}>
+                        data0.map((data, id) =>
+                        (<div className='col-sm-12 pb-2 d-flex justify-content-center border col-md-12 col-lg-6 col-xl-6 col-xxl-4' key={id}>
                             <div className=''>
                                 <div class="hover14 column">
                                     <div className=''>
@@ -164,12 +165,12 @@ const Products = () => {
                                         <span>Data</span>
                                     </div>
                                     <div className="ms-0 ps-2 bg-body-secondary">
-                                        <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{i + 1}</button>
+                                        <button className='px-2 rounded-circle mt-1 border-1 bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{id + 1}</button>
                                         <ul className='ps-4' style={{ listStyle: 'none' }}>
                                             <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
                                             <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
                                             <li className='mb-1 py-1 ps-2 '><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
-                                            <button className='btn btn-info'>More . . .</button>
+                                           <Link to={`/detail/${id}`}> <button className='btn btn-info'>More . . .</button></Link>
                                         </ul>
                                     </div>
                                 </div>
