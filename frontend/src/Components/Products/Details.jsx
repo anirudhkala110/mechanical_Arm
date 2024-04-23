@@ -103,8 +103,8 @@ const Products = () => {
                     </div>
                 </div>
               <div>
-                <div className='container d-flex align-items-start justify-content-center'>
-                    <div className='container px-2'>
+                <div className='container w-100 d-flex align-items-start justify-content-center'>
+                    <div className='container w-100 bg-white shadow border rounded-3 px-2'>
                         <center className='fs-3 fw-semibold alert aalert-success'>Detail of {machineName}</center>
                         Id for the given data is: {id}<hr/>
                         Name of uploader is: {id}, {uploadedBy}, {machineName},{ location} 
