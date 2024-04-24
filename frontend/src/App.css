@@ -761,8 +761,8 @@ figure:hover+span {
 }
 
 .productSample:hover {
-  transform: scale(1.02);
-  box-shadow: 5px 5px 12px 2px #0000005e;
+  box-shadow: 4px 7px 12px 2px #0000001f;
+  transform: scale(1.01);
 
 }
 

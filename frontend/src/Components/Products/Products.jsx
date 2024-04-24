@@ -19,7 +19,7 @@ const Products = () => {
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
             <div>
-                <div className='sideBar p-2' style={{ width: '300px', minHeight: '600px', borderRight: "1px solid rgba(0, 0, 0, 0.22)", minHeight: "600px", boxShadow: "rgba(0, 0, 0, 0.22) 1px -4px 5px 1px" }}>
+                <div className='sideBar p-2' style={{ width: '300px', minHeight: '600px', borderRight: "1px solid rgba(0, 0, 0, 0.22)", minHeight: "600px", boxShadow: "rgba(0, 0, 0, 0) 1px -4px 5px 1px" }}>
                     <div className='mb-3'>
                         <center className='fs-4 fw-bold'>Content</center>
                     </div>
