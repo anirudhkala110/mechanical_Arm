@@ -78,7 +78,7 @@ const Navbar = () => {
                         <a href='/dashboard' className='btn btn-primary my-1 w-100 rounded-0 border'>Dashboard</a>
                         <a href='/login' className='w-50 btn btn-success rounded-0 border'>Login</a>
                         <a href='/register' className='w-50 btn btn-info rounded-0 border'>Sign Up</a>
-                        <a href='' className='w-50 btn btn-danger rounded-0 border'>Logout</a>
+                        <a href='/home' className='w-50 btn btn-danger rounded-0 border'>Logout</a>
                         <a href='/support' className='btn btn-warning my-1 w-50 rounded-0 border'>Support</a>
                     </div>
                 </div>

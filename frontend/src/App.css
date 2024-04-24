@@ -687,7 +687,9 @@ figure:hover+span {
     width: 300px !important;
   }
 }
-
+.hover14_home figure {
+  position: relative;
+}
 @-webkit-keyframes circle {
   0% {
     opacity: 1;
