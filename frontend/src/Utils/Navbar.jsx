@@ -13,11 +13,11 @@ const Navbar = () => {
     return (
         <nav className="navbar w-100 m-0">
             <div className="d-flex w-100 justify-content-between align-items-center px-5 mx-2">
-                <div className='text-white'>
+                <Link to='/' className='text-white text-decoration-none'>
                     <img src={logo} width={40} className='rounded-2' />
                     &nbsp;
                     <strong>RoboShop</strong>
-                </div>
+                </Link>
                 <div className='show1000px'>
                     <div className='d-flex'>
                         <div className='text-white py-1 adminTag'>{admin}</div>
