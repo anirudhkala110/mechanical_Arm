@@ -116,7 +116,6 @@ const Details = () => {
                                                 <div className='text-center col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6'>
                                                     <img src={data.img} className="border w-100" style={{ maxWidth: "500px", maxHeight: '300px' }} />
                                                 </div>
-                                                
                                                 <div className='col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 setBorderLeft750' style={{ borderLeft: '1px solid rgb(196 191 191)' }}>
                                                     <div>
                                                         <ul className='p-0' style={{ listStyle: 'none' }}>
@@ -131,7 +130,7 @@ const Details = () => {
                                             </div>
                                             <div className='py-1'>
                                                 <hr/>
-                                                <center className='p-1 rounded-0 mb-1 alert alert-info'>About Machine</center>
+                                                <center className='p-1 rounded-0 mb-1 alert alert-info fw-semibold fs-4'>About Machine</center>
                                                 <p>Robotic arms, also known as robotic manipulators or robot arms, are mechanical devices designed to mimic the functionality of human arms. These versatile tools are utilized across various industries and applications, ranging from manufacturing and assembly lines to space exploration and healthcare. At their core, robotic arms consist of several key components, including the manipulator, joints, end effector, and actuators.</p>
                                                 <p>The manipulator forms the main body of the robotic arm, often comprising multiple segments connected by joints. These joints serve as points of articulation, enabling different degrees of freedom and motion. The end effector, attached to the arm's end, performs specific tasks and can vary widely depending on the application. It may include grippers, welding torches, cameras, or sensors. Actuators, such as electric, hydraulic, or pneumatic mechanisms, provide motion to the arm's joints, allowing it to execute precise movements.</p>
                                                 <p>Robotic arms find applications across diverse industries. In manufacturing, they play a pivotal role in assembly lines, performing tasks like welding, painting, picking and placing objects, and packaging. In the automotive sector, robotic arms are integral to tasks such as welding car bodies, assembling components, and handling materials. Healthcare utilizes robotic arms in minimally invasive surgeries for their precision and dexterity, as well as in rehabilitation therapies and prosthetic limbs. Moreover, robotic arms contribute significantly to space exploration, assisting in spacecraft operations, rover mobility, and extraterrestrial tasks.</p>
