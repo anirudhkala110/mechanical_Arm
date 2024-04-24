@@ -19,7 +19,7 @@ const data0 = [
 ]
 const Products = () => {
     useEffect(() => {
-        AOS.init({ duration: 200 })
+        AOS.init({ duration: 100 })
     }, [])
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
@@ -149,7 +149,7 @@ const Products = () => {
                 <div className='row p-2'>
                     {
                         data0.map((data, id) =>
-                        (<div className='col-sm-12 py-2 rounded-0 d-flex justify-content-center col-md-6 col-lg-6 col-xl-4 col-xxl-3' key={id} data-aos='fade-up' data-aos-delay='0' data-aos-anchor-easing='ease-in-out' data-aos-duration='200' data-aos-mirror='true'>
+                        (<div className='col-sm-12 py-2 rounded-0 d-flex justify-content-center col-md-6 col-lg-6 col-xl-4 col-xxl-3' key={id}>
                             <div className='d-flex w-100 justify-content-center productSample border '>
                                 <div class="hover14 w-100">
                                     <div className='w-100'>
