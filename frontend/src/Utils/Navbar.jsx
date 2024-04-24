@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { userContext } from '../App';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, a, useNavigate } from 'react-router-dom';
 import logo from '../Images/Logo.jpg'
 
 const Navbar = () => {
@@ -13,34 +13,34 @@ const Navbar = () => {
     return (
         <nav className="navbar w-100 m-0">
             <div className="d-flex w-100 justify-content-between align-items-center px-5 mx-2">
-                <Link to='/' className='text-white text-decoration-none'>
+                <a href='/' className='text-white text-decoration-none'>
                     <img src={logo} width={40} className='rounded-2' />
                     &nbsp;
                     <strong>RoboShop</strong>
-                </Link>
+                </a>
                 <div className='show1000px'>
                     <div className='d-flex'>
                         <div className='text-white py-1 adminTag'>{admin}</div>
-                        <Link to='/'>
+                        <a href='/'>
                             <button className="btn btn-primary ms-2 " type="button" >
                                 Home
                             </button>
-                        </Link>
-                        <Link to='/all-products'>
+                        </a>
+                        <a href='/all-products'>
                             <button className="btn btn-primary ms-2 " type="button" >
                                 Products
                             </button>
-                        </Link>
+                        </a>
                         {/* q */}
                         <div className="dropdown mx-1">
                             <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
                                 Technical
                             </button>
                             <ul className="dropdown-menu px-1" aria-labelledby="dropdownMenuButton1">
-                                <Link to='/about'><button className='btn btn-primary mt-1' style={{ width: '100%' }}>About</button></Link>
-                                <Link to='/contact-us'><button className='btn btn-primary mt-1' style={{ width: '100%' }}>Contact</button></Link>
-                                <Link to='/services'> <button className='btn btn-primary mt-1' style={{ width: '100%' }}>Services</button></Link>
-                                <Link to="/support"><button className='btn btn-primary mt-1' style={{ width: '100%' }}>Support</button></Link>
+                                <a href='/about'><button className='btn btn-primary mt-1' style={{ width: '100%' }}>About</button></a>
+                                <a href='/contact-us'><button className='btn btn-primary mt-1' style={{ width: '100%' }}>Contact</button></a>
+                                <a href='/services'> <button className='btn btn-primary mt-1' style={{ width: '100%' }}>Services</button></a>
+                                <a href="/support"><button className='btn btn-primary mt-1' style={{ width: '100%' }}>Support</button></a>
                             </ul>
                         </div>
                         <div className="dropleft btn-group mx-1">
@@ -48,10 +48,10 @@ const Navbar = () => {
                                 Account
                             </button>
                             <ul className="dropdown-menu px-1" aria-labelledby="dropdownMenuButton">
-                                <Link to={`/profile/${admin}`}><button className='btn btn-primary mt-1' style={{ width: '100%' }}>Profile</button></Link>
+                                <a href={`/profile/${admin}`}><button className='btn btn-primary mt-1' style={{ width: '100%' }}>Profile</button></a>
                                 {/* <button className='btn btn-primary mt-1' style={{ width: '100%' }}>Dashboard</button> */}
-                                <Link to="/login"><button className='btn btn-success mt-1' style={{ width: '100%' }}>Login</button></Link>
-                                <Link to='/register'><button className='btn btn-info mt-1' style={{ width: '100%' }}>Sign Up</button></Link>
+                                <a href="/login"><button className='btn btn-success mt-1' style={{ width: '100%' }}>Login</button></a>
+                                <a href='/register'><button className='btn btn-info mt-1' style={{ width: '100%' }}>Sign Up</button></a>
                                 <button className='btn btn-danger mt-1' style={{ width: '100%' }}>Logout</button>
                             </ul>
                         </div>
@@ -69,17 +69,17 @@ const Navbar = () => {
                     </div>
                     <hr />
                     <div className="offcanvas-body " style={{ minHeight: "500px" }}>
-                        <Link to='/'><button className="btn btn-primary my-1 w-100 rounded-0 border" type="button" >Home</button></Link>
-                        <Link to='/about' className='btn btn-primary my-1 w-100 rounded-0 border'>About</Link>
-                        <Link to='/contact-us' className='btn btn-primary my-1 w-100 rounded-0 border'>Contact</Link>
-                        <Link to='/all-products'><button className="btn btn-primary my-1 w-100 rounded-0 border" type="button" >Products</button></Link>
-                        <Link to='/services' className='btn btn-primary my-1 w-100 rounded-0 border'>Services</Link>
-                        <Link to={`/profile/${admin}`} className='btn btn-primary my-1 w-100 rounded-0 border'>Profile</Link>
-                        <Link to='/dashboard' className='btn btn-primary my-1 w-100 rounded-0 border'>Dashboard</Link>
-                        <Link to='/login' className='w-50 btn btn-success rounded-0 border'>Login</Link>
-                        <Link to='/register' className='w-50 btn btn-info rounded-0 border'>Sign Up</Link>
-                        <Link to='' className='w-50 btn btn-danger rounded-0 border'>Logout</Link>
-                        <Link to='/support' className='btn btn-warning my-1 w-50 rounded-0 border'>Support</Link>
+                        <a href='/'><button className="btn btn-primary my-1 w-100 rounded-0 border" type="button" >Home</button></a>
+                        <a href='/about' className='btn btn-primary my-1 w-100 rounded-0 border'>About</a>
+                        <a href='/contact-us' className='btn btn-primary my-1 w-100 rounded-0 border'>Contact</a>
+                        <a href='/all-products'><button className="btn btn-primary my-1 w-100 rounded-0 border" type="button" >Products</button></a>
+                        <a href='/services' className='btn btn-primary my-1 w-100 rounded-0 border'>Services</a>
+                        <a href={`/profile/${admin}`} className='btn btn-primary my-1 w-100 rounded-0 border'>Profile</a>
+                        <a href='/dashboard' className='btn btn-primary my-1 w-100 rounded-0 border'>Dashboard</a>
+                        <a href='/login' className='w-50 btn btn-success rounded-0 border'>Login</a>
+                        <a href='/register' className='w-50 btn btn-info rounded-0 border'>Sign Up</a>
+                        <a href='' className='w-50 btn btn-danger rounded-0 border'>Logout</a>
+                        <a href='/support' className='btn btn-warning my-1 w-50 rounded-0 border'>Support</a>
                     </div>
                 </div>
             </div>

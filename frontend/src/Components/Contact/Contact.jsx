@@ -69,11 +69,11 @@ const Contact = () => {
                 <meta name='description' content='Query abuout any process, Subject, topic, and Cunsultaion' />
                 <meta name='keywords' content='Contact Us' />
             </Helmet>
-            <div className="bg-white">
+            <div className="bg-white min-vh-100">
                 <center className="fs-4 text-primary border-bottom py-3 fw-semibold alert-info alert rounded-0">Contact Us</center>
                 <div className="px-5 py-1 container" style={{ background: "rgba(0, 0, 0, 5%)", minHeight: "100vh" }}>
                     <div className="my-3">
-                        <i className="bi bi-exclamation-triangle-fill text-warning me-1"></i> If you have any questions or require our assistance, please don't hesitate to get in touch with <b>Roboshop</b>. We are here to help you.
+                        <i className="bi bi-exclamation-triangle-fill text-warning me-1"></i> If you have any questions or require our assistance, please don't hesitate to get in touch with <a href='/all-products' className='text-primary text-decoration-none fw-bolder'>Roboshop</a>. We are here to help you.
                     </div>
                     <hr className="" style={{ color: "black" }} />
                     <div className="row col-12 contactUsBG">
@@ -111,9 +111,9 @@ const Contact = () => {
                                 </div>
                                 <button className="btn border-0 rounded-0 mb-2 send-mail" value="Send">Send Mail</button>
                                 <button className="btn border-0 rounded-0 ms-2 mb-2 call-btn" id="call" onClick={() => handleButtonClick(7668490213)}>Make a Call</button>
-                                <Link to="/" className="text-decoration-none">
+                                <a href="/" className="text-decoration-none">
                                     <button className="btn ms-2 border-0 rounded-0 mb-2 back-home">Back to Home</button>
-                                </Link>
+                                </a>
                             </form>
                         </div>
                     </div>
