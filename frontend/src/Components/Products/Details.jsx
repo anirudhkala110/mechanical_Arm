@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import arm1 from '../../Images/Arm1.jpeg'
 import arm2 from '../../Images/arm2.jpeg'
@@ -6,6 +6,8 @@ import arm3 from '../../Images/arm3.jpeg'
 import arm4 from '../../Images/arm4.jpeg'
 import arm5 from '../../Images/arm5.jpeg'
 import vdo1 from '../../Images/roboticArm.mp4'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const data0 = [
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
@@ -16,6 +18,9 @@ const data0 = [
 ]
 
 const Details = () => {
+    useEffect(() => {
+        AOS.init({ duration: 200 })
+    }, [])
     const { id, uploadedBy, machineName, location } = useParams()
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
@@ -101,7 +106,7 @@ const Details = () => {
                                             <div className='row'>
                                                 <div className='text-center col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6'>
                                                     {/* <div> */}
-                                                    <img src={data.img} className="border w-100 bg-body-secondary" alt={data.machineName} style={{ position: '', maxWidth: "500px", maxHeight: '300px', zIndex: '20', marginLeft: '' }} />
+                                                    <img src={data.img} className="border w-100 bg-body-secondary" alt={data.machineName} style={{ position: '', maxWidth: "500px", maxHeight: '300px', zIndex: '20', marginLeft: '' }} data-aos='fade-up' data-aos-delay='100' data-aos-anchor-easing='ease-in-out' data-aos-duration='500' data-aos-mirror='true' />
                                                     {/* <div className="loadingBase" style={{ position: 'absolute',zIndex:'1', background: 'none',marginTop:'',marginLeft:'' }}>
                                                             <div className="wave"></div>
                                                             <div className="wave"></div>
@@ -138,7 +143,7 @@ const Details = () => {
                                                 <hr />
                                             </div>
                                             <div className='text-center'>
-                                                <video src={vdo1} className='w-100' style={{maxWidth:"1000px"}} autoPlay controls disablePictureInPicture loop controlsList='nodownload' alt="Automated PCB Assembly Line. Conveyor with Advanced High Precision Robot Arms at Electronics Manufacturing Factory. Component Installation on Circuit Board. Semiconductor Production Industry Manufacturing Stock Footage Video"/>
+                                                <video src={vdo1} className='w-100' style={{ maxWidth: "1000px" }} autoPlay controls disablePictureInPicture loop controlsList='nodownload' alt="Automated PCB Assembly Line. Conveyor with Advanced High Precision Robot Arms at Electronics Manufacturing Factory. Component Installation on Circuit Board. Semiconductor Production Industry Manufacturing Stock Footage Video" />
                                             </div>
                                         </div>
                                     </div>
