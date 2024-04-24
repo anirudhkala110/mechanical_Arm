@@ -144,11 +144,11 @@ const Products = () => {
                 <div className='row p-2'>
                     {
                         data0.map((data, id) =>
-                        (<div className='col-sm-12 py-2 rounded-3 d-flex justify-content-center col-md-6 col-lg-6 col-xl-4 col-xxl-3' key={id}>
+                        (<div className='col-sm-12 py-2 rounded-0 d-flex justify-content-center col-md-6 col-lg-6 col-xl-4 col-xxl-3' key={id}>
                             <div className='d-flex w-100 justify-content-center productSample border '>
                                 <div class="hover14 w-100">
                                     <div className='w-100'>
-                                        <figure className='rounded bg-white w-100'>
+                                        <figure className='rounded-0 bg-body-secondary w-100'>
                                             {data.img ? <img className='w-100' src={data.img} style={{ minHeight: '200px' }} /> : <center className="loadingBase"><strong className='fs-3 fw-semibold'>Loading. . .</strong></center>}
                                             <center className="loadingBase">
                                                 <div className="wave"></div>
@@ -165,7 +165,7 @@ const Products = () => {
                                         </figure>
                                     </div>
                                     <hr />
-                                    <div className="ms-0 ps-2 bg-white">
+                                    <div className="ms-0 ps-2">
                                         <button className='px-2 rounded-circle bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{id + 1}</button>
                                         <ul className='ps-4' style={{ listStyle: 'none' }}>
                                             <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>

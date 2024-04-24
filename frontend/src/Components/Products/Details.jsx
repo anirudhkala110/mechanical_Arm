@@ -5,28 +5,14 @@ import arm2 from '../../Images/arm2.jpeg'
 import arm3 from '../../Images/arm3.jpeg'
 import arm4 from '../../Images/arm4.jpeg'
 import arm5 from '../../Images/arm5.jpeg'
+import vdo1 from '../../Images/roboticArm.mp4'
 
 const data0 = [
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2 },
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3 },
     { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4 },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5 }
 ]
 
 const Details = () => {
@@ -106,7 +92,7 @@ const Details = () => {
                 <div>
                     <div className='container w-100 d-flex align-items-start justify-content-center'>
                         <div className='container w-100 bg-white px-2' style={{ borderLeft: '1px solid rgb(196 191 191)', borderRight: '1px solid rgb(196 191 191)' }}>
-                            <center className='fs-3 fw-semibold alert rounded-0 alert-success'>Detail of {machineName}</center>
+                            <center className='fs-3 fw-semibold alert mt-1 rounded-0 alert-success'>Detail of {machineName}</center>
                             <hr />
                             {
                                 data0.map((data, i) => (
@@ -114,7 +100,21 @@ const Details = () => {
                                         <div className=''>
                                             <div className='row'>
                                                 <div className='text-center col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6'>
-                                                    <img src={data.img} className="border w-100" style={{ maxWidth: "500px", maxHeight: '300px' }} />
+                                                    {/* <div> */}
+                                                    <img src={data.img} className="border w-100 bg-body-secondary" alt={data.machineName} style={{ position: '', maxWidth: "500px", maxHeight: '300px', zIndex: '20', marginLeft: '' }} />
+                                                    {/* <div className="loadingBase" style={{ position: 'absolute',zIndex:'1', background: 'none',marginTop:'',marginLeft:'' }}>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                            <div className="wave"></div>
+                                                        </div> */}
+                                                    {/* </div> */}
                                                 </div>
                                                 <div className='col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 setBorderLeft750' style={{ borderLeft: '1px solid rgb(196 191 191)' }}>
                                                     <div>
@@ -129,13 +129,16 @@ const Details = () => {
                                                 </div>
                                             </div>
                                             <div className='py-1'>
-                                                <hr/>
+                                                <hr />
                                                 <center className='p-1 rounded-0 mb-1 alert alert-info fw-semibold fs-4'>About Machine</center>
                                                 <p>Robotic arms, also known as robotic manipulators or robot arms, are mechanical devices designed to mimic the functionality of human arms. These versatile tools are utilized across various industries and applications, ranging from manufacturing and assembly lines to space exploration and healthcare. At their core, robotic arms consist of several key components, including the manipulator, joints, end effector, and actuators.</p>
                                                 <p>The manipulator forms the main body of the robotic arm, often comprising multiple segments connected by joints. These joints serve as points of articulation, enabling different degrees of freedom and motion. The end effector, attached to the arm's end, performs specific tasks and can vary widely depending on the application. It may include grippers, welding torches, cameras, or sensors. Actuators, such as electric, hydraulic, or pneumatic mechanisms, provide motion to the arm's joints, allowing it to execute precise movements.</p>
                                                 <p>Robotic arms find applications across diverse industries. In manufacturing, they play a pivotal role in assembly lines, performing tasks like welding, painting, picking and placing objects, and packaging. In the automotive sector, robotic arms are integral to tasks such as welding car bodies, assembling components, and handling materials. Healthcare utilizes robotic arms in minimally invasive surgeries for their precision and dexterity, as well as in rehabilitation therapies and prosthetic limbs. Moreover, robotic arms contribute significantly to space exploration, assisting in spacecraft operations, rover mobility, and extraterrestrial tasks.</p>
                                                 <p>The advantages of robotic arms are manifold. Their precision and repeatability enhance quality and efficiency in manufacturing processes. By automating repetitive or hazardous tasks, they increase productivity while reducing the risk of injuries to human workers. Additionally, the versatility of robotic arms allows them to be programmed for a wide range of tasks, making them indispensable across various industries. Overall, robotic arms represent a critical component of modern industry and technology, offering advanced capabilities for automation, precision, and efficiency.</p>
-                                                <hr/>
+                                                <hr />
+                                            </div>
+                                            <div className='text-center'>
+                                                <video src={vdo1} className='w-100' style={{maxWidth:"1000px"}} autoFocus autoPlay controls disablePictureInPicture loop controlsList='nodownload' alt="Automated PCB Assembly Line. Conveyor with Advanced High Precision Robot Arms at Electronics Manufacturing Factory. Component Installation on Circuit Board. Semiconductor Production Industry Manufacturing Stock Footage Video"/>
                                             </div>
                                         </div>
                                     </div>
