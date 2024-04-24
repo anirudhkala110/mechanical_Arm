@@ -33,7 +33,7 @@ const Details = () => {
     const { id, uploadedBy, machineName, location } = useParams()
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
-            <div className='w-100 border pb-2'>
+            <div className='w-100 pb-2'>
                 <div className='sideBarButtonDetailsPage'>
                     <button className=' btn btn-primary' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2" aria-controls="offcanvasExample2" style={{ position: 'fixed', zIndex: '100' }}>
                         <i class="bi bi-arrow-left-right fw-bolder fs-5"></i>
@@ -105,20 +105,37 @@ const Details = () => {
                 </div>
                 <div>
                     <div className='container w-100 d-flex align-items-start justify-content-center'>
-                        <div className='container w-100 bg-white shadow border rounded-3 px-2'>
-                            <center className='fs-3 fw-semibold alert aalert-success'>Detail of {machineName}</center>
+                        <div className='container w-100 bg-white px-2' style={{ borderLeft: '1px solid rgb(196 191 191)', borderRight: '1px solid rgb(196 191 191)' }}>
+                            <center className='fs-3 fw-semibold alert rounded-0 alert-success'>Detail of {machineName}</center>
                             <hr />
                             {
                                 data0.map((data, i) => (
                                     <div style={{ display: `${id == i ? 'block' : 'none'}` }}>
-                                        <img src={data.img} className="rounded w-100" style={{ maxWidth: "500px",maxHeight:'300px' }} />
-                                        <div>
-                                            <div>
-                                                <ul>
-                                                    <li><strong>Uploaded By : </strong>{data.uploadedBy}</li>
-                                                    <li><strong>Location &nbsp;&nbsp; : </strong>{data.location}</li>
-                                                    <li><strong>Machine Name: </strong>{data.machineName}</li>
-                                                </ul>
+                                        <div className=''>
+                                            <div className='row'>
+                                                <div className='text-center col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6'>
+                                                    <img src={data.img} className="border w-100" style={{ maxWidth: "500px", maxHeight: '300px' }} />
+                                                </div>
+                                                <div className='col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6' style={{ borderLeft: '1px solid rgb(196 191 191)' }}>
+                                                    <div>
+                                                        <ul className='p-0' style={{ listStyle: 'none' }}>
+                                                            <li><strong>Machine Name: </strong>{data.machineName}</li>
+                                                            <li><strong>Location &nbsp;&nbsp; : </strong>{data.location}</li>
+                                                            <li><strong>Condition &nbsp;&nbsp;: </strong>First Hand</li>
+                                                            <li><strong>Uploaded By : </strong>{data.uploadedBy}</li>
+                                                            <li><strong>Description : </strong><p>This is the robotic machine which can be used for many different purposes; like holding different things, pulling up some weight and and can peform the work like normal human being.</p></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='py-1'>
+                                                <hr/>
+                                                <center className='p-1 rounded-0 mb-1 alert alert-info'>About Machine</center>
+                                                <p>Robotic arms, also known as robotic manipulators or robot arms, are mechanical devices designed to mimic the functionality of human arms. These versatile tools are utilized across various industries and applications, ranging from manufacturing and assembly lines to space exploration and healthcare. At their core, robotic arms consist of several key components, including the manipulator, joints, end effector, and actuators.</p>
+                                                <p>The manipulator forms the main body of the robotic arm, often comprising multiple segments connected by joints. These joints serve as points of articulation, enabling different degrees of freedom and motion. The end effector, attached to the arm's end, performs specific tasks and can vary widely depending on the application. It may include grippers, welding torches, cameras, or sensors. Actuators, such as electric, hydraulic, or pneumatic mechanisms, provide motion to the arm's joints, allowing it to execute precise movements.</p>
+                                                <p>Robotic arms find applications across diverse industries. In manufacturing, they play a pivotal role in assembly lines, performing tasks like welding, painting, picking and placing objects, and packaging. In the automotive sector, robotic arms are integral to tasks such as welding car bodies, assembling components, and handling materials. Healthcare utilizes robotic arms in minimally invasive surgeries for their precision and dexterity, as well as in rehabilitation therapies and prosthetic limbs. Moreover, robotic arms contribute significantly to space exploration, assisting in spacecraft operations, rover mobility, and extraterrestrial tasks.</p>
+                                                <p>The advantages of robotic arms are manifold. Their precision and repeatability enhance quality and efficiency in manufacturing processes. By automating repetitive or hazardous tasks, they increase productivity while reducing the risk of injuries to human workers. Additionally, the versatility of robotic arms allows them to be programmed for a wide range of tasks, making them indispensable across various industries. Overall, robotic arms represent a critical component of modern industry and technology, offering advanced capabilities for automation, precision, and efficiency.</p>
+                                                <hr/>
                                             </div>
                                         </div>
                                     </div>
