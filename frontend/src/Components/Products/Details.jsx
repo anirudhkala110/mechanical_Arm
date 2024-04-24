@@ -116,7 +116,8 @@ const Details = () => {
                                                 <div className='text-center col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6'>
                                                     <img src={data.img} className="border w-100" style={{ maxWidth: "500px", maxHeight: '300px' }} />
                                                 </div>
-                                                <div className='col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6' style={{ borderLeft: '1px solid rgb(196 191 191)' }}>
+                                                
+                                                <div className='col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 setBorderLeft750' style={{ borderLeft: '1px solid rgb(196 191 191)' }}>
                                                     <div>
                                                         <ul className='p-0' style={{ listStyle: 'none' }}>
                                                             <li><strong>Machine Name: </strong>{data.machineName}</li>

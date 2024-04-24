@@ -149,7 +149,7 @@ const Products = () => {
                                 <div class="hover14 w-100">
                                     <div className='w-100'>
                                         <figure className='rounded bg-white w-100'>
-                                            {data.img ? <img className='w-100' src={data.img} style={{minHeight:'200px'}} /> : <center className="loadingBase"><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div><div className="wave"></div></center>}
+                                            {data.img ? <img className='w-100' src={data.img} style={{ minHeight: '200px' }} /> : <center className="loadingBase"><strong className='fs-3 fw-semibold'>Loading. . .</strong></center>}
                                             <center className="loadingBase">
                                                 <div className="wave"></div>
                                                 <div className="wave"></div>
@@ -164,7 +164,7 @@ const Products = () => {
                                             </center>
                                         </figure>
                                     </div>
-                                    <hr/>
+                                    <hr />
                                     <div className="ms-0 ps-2 bg-white">
                                         <button className='px-2 rounded-circle bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{id + 1}</button>
                                         <ul className='ps-4' style={{ listStyle: 'none' }}>

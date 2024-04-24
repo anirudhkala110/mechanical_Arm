@@ -767,3 +767,11 @@ figure:hover+span {
 }
 
 /* Smaple Product */
+/* Set Border Left in Detail Page*/
+@media only screen and (max-width:750px) {
+  .setBorderLeft750 {
+    border: none !important;
+  }
+}
+
+/* Set Border Left in Detail Page*/
