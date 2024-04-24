@@ -10,7 +10,7 @@ const Home = () => {
     }, [])
     return (
         <div className='min-vh-100'>
-            <div className='row pt-1 bg-body-secondary'>
+            <div className='row bg-body-secondary'>
                 <div className='col-12'>
                     {/* <div className='col-sm-12 col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6'> */}
                     <div className='' data-aos="slide-up" data-aos-delay='50' data-aos-anchor-easing='ease-in-out' data-aos-duration='500' data-aos-mirror='true'>
