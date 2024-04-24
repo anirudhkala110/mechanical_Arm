@@ -138,7 +138,7 @@ const Details = () => {
                                                 <hr />
                                             </div>
                                             <div className='text-center'>
-                                                <video src={vdo1} className='w-100' style={{maxWidth:"1000px"}} autoFocus autoPlay controls disablePictureInPicture loop controlsList='nodownload' alt="Automated PCB Assembly Line. Conveyor with Advanced High Precision Robot Arms at Electronics Manufacturing Factory. Component Installation on Circuit Board. Semiconductor Production Industry Manufacturing Stock Footage Video"/>
+                                                <video src={vdo1} className='w-100' style={{maxWidth:"1000px"}} autoPlay controls disablePictureInPicture loop controlsList='nodownload' alt="Automated PCB Assembly Line. Conveyor with Advanced High Precision Robot Arms at Electronics Manufacturing Factory. Component Installation on Circuit Board. Semiconductor Production Industry Manufacturing Stock Footage Video"/>
                                             </div>
                                         </div>
                                     </div>

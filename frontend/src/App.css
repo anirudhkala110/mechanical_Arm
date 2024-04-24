@@ -227,6 +227,7 @@ html {
 
 ::-webkit-scrollbar {
   width: 10px;
+  background-color: black;
 }
 
 ::-webkit-scrollbar-track {

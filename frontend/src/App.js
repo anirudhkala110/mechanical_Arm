@@ -14,6 +14,7 @@ import Profile from './Components/Admin/Profile/Profile';
 import Login from './Authentication/Login';
 import Register from './Authentication/Register';
 import DashBoard from './Components/Admin/Dashboard/DashBoard';
+import Footer from './Utils/Footer';
 
 export const userContext = createContext()
 
@@ -44,6 +45,10 @@ function App() {
 
                 <Route path='*' element={<PageNoteFound />} />
               </Routes>
+              <div className='navbar-inverse rounded-0'style={{minHeight:'50px'}}>
+              {/* <div className='navbar-fixed-bottom navbar-inverse'> */}
+                <Footer />
+              </div>
             </Router>
           </div>
         </userContext.Provider>
