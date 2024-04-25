@@ -20,8 +20,8 @@ const Login = () => {
   }
   return (
     <div class="min-vh-100">
-      <div class="container pt-5">
-        <form class="py-3 shadow rounded-2 px-5 px-sm-2 px-md-4 px-lg-5 border">
+      <div class="container d-flex justify-content-center pt-5">
+        <form class="py-3 shadow rounded-2 px-5 px-sm-2 px-md-4 px-lg-5 border" style={{maxWidth:'550px'}}>
           <center>
             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
             <hr />

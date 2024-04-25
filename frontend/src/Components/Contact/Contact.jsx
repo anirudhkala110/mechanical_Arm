@@ -13,7 +13,7 @@ const Contact = () => {
 
     return (
         <div className='min-vh-100'>
-            <div className='container'>
+            <div className='container pt-3'>
                 {/* Details of the ShopKeepers with contact number */}
                 <center className='alert alert-info rounded-0 fs-4 fw-semibold'>Contact Owners</center>
                 <div className='container row'>
