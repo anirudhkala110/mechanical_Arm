@@ -795,3 +795,17 @@ figure:hover+span {
 }
 
 /* Set Border Left in Detail Page*/
+
+/* technicalDropDownbtn */
+
+.technicalDropDownbtn {
+  transition: .2s ease-in-out;
+}
+
+.technicalDropDownbtn:hover {
+  background: #51bcdc !important;
+  font-weight: 600;
+  color: white !important;
+}
+
+/* technicalDropDownbtn */
