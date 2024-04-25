@@ -11,7 +11,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="navbar w-100 shadow rounded-0" style={{ background: '#ffffffbf', borderBottom: '0px solid' }}>
+        <nav className="navbar w-100 shadow rounded-0" style={{ background: 'rgb(255 255 255 / 90%)', borderBottom: '0px solid' }}>
             <div className="d-flex w-100 justify-content-between align-items-center px-5 mx-2">
                 <a href='/' className='text-decoration-none text-warning d-flex align-items-center' >
                     <img src={logo} width={40} className='rounded-2' />
