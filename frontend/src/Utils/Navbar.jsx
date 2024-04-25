@@ -22,20 +22,20 @@ const Navbar = () => {
                     <div className='d-flex fw-semibold'>
                         <button className='fw-semibold btn px-2 py-1 adminTag'>{admin.user}</button>
                         <a href='/'>
-                            <button className="btn btnHover ms-2 " type="button" >
+                            <button className="btn btnHover fw-bold ms-2 " type="button" >
                                 {/* <button className="btn btn-primary ms-2 " type="button" > */}
                                 Home
                             </button>
                         </a>
                         <a href='/all-products'>
-                            <button className="btn btnHover ms-2 " type="button" >
+                            <button className="btn btnHover fw-bold ms-2 " type="button" >
                                 {/* <button className="btn btn-primary ms-2 " type="button" > */}
                                 Products
                             </button>
                         </a>
                         {/* q */}
                         <div className="dropdown mx-1">
-                            <button className="btn btnHover dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                            <button className="btn btnHover fw-bold dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
                                 {/* <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"> */}
                                 Technical
                             </button>
@@ -47,7 +47,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div className="dropleft btn-group mx-1">
-                            <button className="btn btnHover dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                            <button className="btn btnHover fw-bold dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
                                 {/* <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"> */}
                                 Account
                             </button>
