@@ -90,7 +90,7 @@ function Register() {
     }
   }
   return (
-    <MDBContainer fluid>
+    <MDBContainer fluid className='min-vh-100'>
 
       <MDBCard className='text-black m-5' style={{ borderRadius: '' }}>
         <MDBCardBody>
