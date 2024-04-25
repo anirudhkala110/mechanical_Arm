@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import arm1 from '../../Images/Arm1.jpeg'
 import arm2 from '../../Images/arm2.jpeg'
 import arm3 from '../../Images/arm3.jpeg'
@@ -21,6 +21,17 @@ const Products = () => {
     useEffect(() => {
         AOS.init({ duration: 100 })
     }, [])
+    const [Str, setStr] = useState('Robotic arms, also known as robotic manipulators or robot arms, are mechanical devices designed to mimic the functionality of human arms. These versatile tools are utilized across various industries and applications, ranging from manufacturing and assembly lines to space exploration and healthcare. At their core, robotic arms consist of several key components, including the manipulator, joints, end effector, and actuators.')
+    function truncate(str, size) {
+        let stringUpdated = ''
+        if (str.lenght <= size) {
+            stringUpdated = str
+        }
+        else {
+            stringUpdated = str.slice(0, size) + '...'
+        }
+        return stringUpdated
+    }
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
             <div>
@@ -146,15 +157,16 @@ const Products = () => {
             <div className='mainBase ms-1 bg-white p-2'>
                 <center className='fs-3 fw-semibold my-2 pb-2' style={{ position: '', zIndex: '100' }}>Products</center>
                 <hr className='' />
-                <div className='row p-2'>
+                <div className='p-2'>
                     {
                         data0.map((data, id) =>
-                        (<div className='col-sm-12 py-2 rounded-0 d-flex justify-content-center col-md-6 col-lg-6 col-xl-4 col-xxl-3' key={id}>
+                        (<div className=' py-2 rounded-0 d-flex justify-content-center col-sm-12 col-md-6 col-lg-6 col-xl-4' key={id}>
+                            {/* (<div className='col-sm-12 py-2 rounded-0 d-flex justify-content-center col-md-6 col-lg-6 col-xl-4 col-xxl-3' key={id}> */}
                             <div className='d-flex w-100 justify-content-center productSample border '>
                                 <div class="hover14 w-100">
                                     <div className='w-100'>
                                         <figure className='rounded-0 bg-body-secondary w-100'>
-                                            {data.img ? <img className='w-100' src={data.img} style={{ minHeight: '200px' }} /> : <center className="loadingBase"><strong className='fs-3 fw-semibold'>Loading. . .</strong></center>}
+                                            {data.img ? <img className='w-100' src={data.img} style={{ minHeight: '400px' }} /> : <center className="loadingBase"><strong className='fs-3 fw-semibold'>Loading. . .</strong></center>}
                                             <center className="loadingBase">
                                                 <div className="wave"></div>
                                                 <div className="wave"></div>
@@ -173,10 +185,11 @@ const Products = () => {
                                     <div className="ms-0 ps-2">
                                         <button className='px-2 rounded-circle bg-success text-white' style={{ marginLeft: '0px', fontSize: '12px' }}>{id + 1}</button>
                                         <ul className='ps-4' style={{ listStyle: 'none' }}>
-                                            <li className='mb-1 py-1 ps-2 '><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
-                                            <li className='mb-1 py-1 ps-2 '><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
-                                            <li className='mb-1 py-1 ps-2 '><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
-
+                                            <li className=''><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
+                                            <li className=''><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
+                                            <li className=''><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
+                                            <p>{truncate(Str, 100)}</p>
+                                            {/* <p>The manipulator forms the main body of the robotic arm, often comprising multiple segments connected by joints. These joints serve as points of articulation, enabling different degrees of freedom and motion. The end effector, attached to the arm's end, performs specific tasks and can vary widely depending on the application. It may include grippers, welding torches, cameras, or sensors. Actuators, such as electric, hydraulic, or pneumatic mechanisms, provide motion to the arm's joints, allowing it to execute precise movements.</p> */}
 
                                             <a href={`/detail/${id}/${data.machineName}/${data.location}/${data.uploadedBy}`}> <button className='btn btn-info'>More . . .</button></a>
 

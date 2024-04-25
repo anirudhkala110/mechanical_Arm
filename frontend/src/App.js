@@ -15,11 +15,14 @@ import Login from './Authentication/Login';
 import Register from './Authentication/Register';
 import DashBoard from './Components/Admin/Dashboard/DashBoard';
 import Footer from './Utils/Footer';
+import JoinUs from './Images/JoinUs.jpg'
 
 export const userContext = createContext()
 
 function App() {
-  const [admin, setAdmin] = useState("Admin")
+  const [admin, setAdmin] = useState({ user: "Admin", img: JoinUs })
+  // const [admin, setAdmin] = useState("Admin")
+
   return (
     <>
       <div className='' style={{ minWidth: "350px" }}>
@@ -46,7 +49,7 @@ function App() {
               </Routes>
             </div>
             <div className='navbar-dark bg-black rounded-0 px-5 d-flex align-items-center' style={{ minHeight: '50px' }}>
-            {/* <div className='navbar-inverse rounded-0' style={{ minHeight: '50px' }}> */}
+              {/* <div className='navbar-inverse rounded-0' style={{ minHeight: '50px' }}> */}
               {/* <div className='navbar-fixed-bottom navbar-inverse'> */}
               <Footer />
             </div>

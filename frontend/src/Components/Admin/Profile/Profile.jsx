@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
-
+import { userContext } from '../../../App'
 const Profile = () => {
-    const { user } = useParams()
+    const admin = useContext(userContext)
+    // const { user } = useParams()
     return (
-        <div>Profile : {user}</div>
+        <div>Profile : {admin.user}
+            {/* <img src={admin.img} /> */}
+        </div>
+
     )
 }
 
