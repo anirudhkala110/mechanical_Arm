@@ -35,7 +35,7 @@ const Products = () => {
     return (
         <div className='min-vh-100 d-flex justify-content-start align-items-start'>
             <div>
-                <div className='sideBar p-2' style={{ width: '300px', minHeight: '600px', borderRight: "1px solid rgba(0, 0, 0, 0.22)", minHeight: "600px", boxShadow: "rgba(0, 0, 0, 0) 1px -4px 5px 1px" }}>
+                <div className='sideBar p-2' style={{ width: '200px', minHeight: '600px', borderRight: "1px solid rgba(0, 0, 0, 0.22)", minHeight: "600px", boxShadow: "rgba(0, 0, 0, 0) 1px -4px 5px 1px" }}>
                     <div className='mb-3'>
                         <center className='fs-4 fw-bold'>Content</center>
                     </div>
@@ -45,12 +45,12 @@ const Products = () => {
                             Types
                         </button>
                         <ul className='ps-0' style={{ listStyle: 'none' }}>
-                            <li className='subList  py-1 ps-3  '>Army Mechanical Arms <i class="bi bi-arrow-right-short"></i></li>
-                            <li className='subList  py-1 ps-3  '>Medical Mechanical Arms <i class="bi bi-arrow-right-short"></i></li>
-                            <li className='subList  py-1 ps-3  '>School Mechanical Arms <i class="bi bi-arrow-right-short"></i></li>
-                            <li className='subList  py-1 ps-3  '>Construction Mechanical Arms <i class="bi bi-arrow-right-short"></i></li>
-                            <li className='subList  py-1 ps-3  '>Automobile Mechanical Arms <i class="bi bi-arrow-right-short"></i></li>
-                            <li className='subList  py-1 ps-3  '>Mechanical Arms for Mechanics <i class="bi bi-arrow-right-short"></i></li>
+                            <li className='subList  py-1 ps-3  '>Army  <i class="bi bi-arrow-right-short"></i></li>
+                            <li className='subList  py-1 ps-3  '>Medical  <i class="bi bi-arrow-right-short"></i></li>
+                            <li className='subList  py-1 ps-3  '>School  <i class="bi bi-arrow-right-short"></i></li>
+                            <li className='subList  py-1 ps-3  '>Construction  <i class="bi bi-arrow-right-short"></i></li>
+                            <li className='subList  py-1 ps-3  '>Automobile  <i class="bi bi-arrow-right-short"></i></li>
+                            <li className='subList  py-1 ps-3  '> for Mechanics <i class="bi bi-arrow-right-short"></i></li>
                         </ul>
                     </div>
                     <hr />
@@ -102,12 +102,12 @@ const Products = () => {
                                     Types
                                 </button>
                                 <ul className='ps-0' style={{ listStyle: 'none' }}>
-                                    <li className='subList  py-1 ps-3  '>Army Mechanical Arms</li>
-                                    <li className='subList  py-1 ps-3  '>Medical Mechanical Arms</li>
-                                    <li className='subList  py-1 ps-3  '>School Mechanical Arms</li>
-                                    <li className='subList  py-1 ps-3  '>Construction Mechanical Arms</li>
-                                    <li className='subList  py-1 ps-3  '>Automobile Mechanical Arms</li>
-                                    <li className='subList  py-1 ps-3  '>Mechanical Arms for Mechanics</li>
+                                    <li className='subList  py-1 ps-3  '>Army </li>
+                                    <li className='subList  py-1 ps-3  '>Medical </li>
+                                    <li className='subList  py-1 ps-3  '>School </li>
+                                    <li className='subList  py-1 ps-3  '>Construction </li>
+                                    <li className='subList  py-1 ps-3  '>Automobile </li>
+                                    <li className='subList  py-1 ps-3  '> for Mechanics</li>
                                 </ul>
                             </div>
                             <hr />
