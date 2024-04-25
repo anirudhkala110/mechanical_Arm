@@ -68,7 +68,7 @@ function Register() {
 
   }
   const [disableEmail, setDisableEmail] = useState(false)
-  const [verified, setVerified] = useState(true)
+  const [verified, setVerified] = useState(false)
   const [otpSent, setOtpSent] = useState(true)
 
   const handleSendOTP = () => {
