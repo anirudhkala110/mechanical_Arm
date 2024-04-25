@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Poppins:wght@300&family=Roboto&display=swap');
+
 *::after,
 ::before {
   box-sizing: border-box;
@@ -15,6 +17,11 @@ html {
   min-width: 350px;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  font-family: "Poppins" !important;
+}
+
+body {
+  font-family: "Poppins" !important;
 }
 
 .less1000px {
@@ -218,8 +225,8 @@ html {
   cursor: pointer;
   border-bottom: 5px solid transparent;
   /* border-top-right-radius:30px ; */
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  /* border-top-left-radius: 20px; */
+  /* border-bottom-right-radius: 20px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -776,14 +783,53 @@ figure:hover+span {
 .productSample {
   transition: .1s ease-in-out;
   cursor: pointer;
-  border-bottom-right-radius: 8px;
+  /* border-bottom-right-radius: 8px; */
 }
 
 .productSample:hover {
-  box-shadow: 4px 7px 12px 2px #0000001f;
+  /* box-shadow: 4px 7px 12px 2px #0000001f; */
   background-image: linear-gradient(24deg, #00b2ff40, #00ffea36, #00aaff1c);
   /* transform: scale(1.01); */
   border: 1px solid rgba(6, 140, 174, 0.558) !important;
+
+}
+
+.productSample:hover+
+.designBottom {
+  /* background-image: linear-gradient(24deg, #00b2ff40, #00ffea36, #00aaff1c); */
+  /* transform: scale(1.01); */
+  /* background: rgba(0, 108, 154, 0.318) !important; */
+  border-top: 1px solid rgba(6, 140, 174, 0.547) !important;
+  border-left: 1px solid rgba(6, 140, 174, 0.337) !important;
+  background-image: linear-gradient(to right bottom, #aaa 50%, #fff 51%);
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 100;
+  right: 15px;
+  border-left-width: 1px;
+  border-left-color: #DDDDDD;
+  border-left-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+  z-index: 10;
+  /* transition: .3s ease-in-out; */
+  animation: identifier .3s linear;
+}
+
+@keyframes identifier {
+  0% {
+    transform: translate(3px, 3px);
+    /* background-image: linear-gradient(to right bottom, #aaa 0%, #fff 0%); */
+    /* Added comma */
+  }
+
+  100% {
+    transform: translate(1px, 1px);
+    /* background-image: linear-gradient(to right bottom, #aaa 51%, #fff 51%); */
+    /* Added comma */
+  }
 }
 
 /* Smaple Product */

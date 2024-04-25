@@ -11,11 +11,11 @@ import 'aos/dist/aos.css';
 
 
 const data0 = [
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1, type:'Army' },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2, type:'Army' },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3, type:'Army' },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4, type:'Army' },
-    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5, type:'Army' }
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm1, type: 'Army' },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm2, type: 'Army' },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm3, type: 'Army' },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm4, type: 'Army' },
+    { uploadedBy: 'Anirudh Kala', location: 'Delhi', machineName: 'Robotic Arm', img: arm5, type: 'Army' }
 ]
 const Products = () => {
     useEffect(() => {
@@ -160,7 +160,7 @@ const Products = () => {
                 <div className='p-2'>
                     {
                         data0.map((data, id) =>
-                        (<div className=' py-2 rounded-0 d-flex justify-content-center col-sm-12 col-md-6 col-lg-6 col-xl-4' key={id}>
+                        (<div className=' py-2 rounded-0 d-flex align-items-end justify-content-center col-sm-12 col-md-6 col-lg-6 col-xl-4' key={id}>
                             {/* (<div className='col-sm-12 py-2 rounded-0 d-flex justify-content-center col-md-6 col-lg-6 col-xl-4 col-xxl-3' key={id}> */}
                             <div className='d-flex w-100 justify-content-center productSample border '>
                                 <div class="hover14 w-100">
@@ -197,6 +197,8 @@ const Products = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div className='designBottom' style={{border:'',width:'50px',height:'50px',marginLeft:'-50px'}}></div>
+                            <div class="pageflip"></div>
                         </div>)
                         )
                     }
