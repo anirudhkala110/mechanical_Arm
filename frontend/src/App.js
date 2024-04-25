@@ -24,11 +24,11 @@ function App() {
     <>
       <div className='' style={{ minWidth: "350px" }}>
         <userContext.Provider value={admin}>
-          <div className='pt-5 mt-2'>
-            <Router>
-              <div className='navbar-fixed-top navbar-inverse'>
-                <Navbar />
-              </div>
+          <Router>
+            <div className='navbar-fixed-top text-black'>
+              <Navbar />
+            </div>
+            <div className='pt-5 mt-2'>
               <Routes>
                 <Route exact path='/' element={<Home />} />
                 <Route exact path='/home' element={<Home />} />
@@ -42,15 +42,15 @@ function App() {
                 <Route exact path='/register' element={<Register />} />
                 <Route exact path='/dashboard' element={<DashBoard />} />
                 <Route exact path='/detail/:id/:machineName/:location/:uploadedBy' element={<Details />} />
-
                 <Route path='*' element={<PageNoteFound />} />
               </Routes>
-              <div className='navbar-inverse rounded-0'style={{minHeight:'50px'}}>
+            </div>
+            <div className='navbar-dark bg-black rounded-0 px-5 d-flex align-items-center' style={{ minHeight: '50px' }}>
+            {/* <div className='navbar-inverse rounded-0' style={{ minHeight: '50px' }}> */}
               {/* <div className='navbar-fixed-bottom navbar-inverse'> */}
-                <Footer />
-              </div>
-            </Router>
-          </div>
+              <Footer />
+            </div>
+          </Router>
         </userContext.Provider>
       </div>
     </>

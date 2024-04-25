@@ -40,19 +40,36 @@ html {
   border-bottom: 1px solid;
   border-color: transparent;
   transition: .2s ease-in-out;
-  padding-left: 0px;
-  padding-right: 0px;
-  background: linear-gradient(rgba(86, 77, 77, 0.023), rgba(40, 35, 35, 0.286), rgba(0, 0, 0, 0));
+  /* background: linear-gradient(rgba(86, 77, 77, 0.023), rgba(40, 35, 35, 0.286), rgba(0, 0, 0, 0)); */
   cursor: pointer;
 }
 
 .adminTag:hover {
+  border-radius: 0px;
+  border-bottom: 2px solid rgb(0, 110, 255) !important;
+  color: rgb(0, 110, 255) !important;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.618), rgba(0, 0, 0, 0.722), rgba(57, 54, 54, 0)); */
+  /* border-radius: 2px; */
+}
+
+.btnHover {
   border-bottom: 2px solid;
-  border-color: rgb(0, 110, 255);
-  background: linear-gradient(rgba(0, 0, 0, 0.618), rgba(0, 0, 0, 0.722), rgba(57, 54, 54, 0));
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 2px;
+  border-color: transparent;
+
+}
+
+.btnHover:hover {
+  border-radius: 0px;
+  border-bottom: 2px solid rgb(0, 110, 255) !important;
+  border-radius: 0px;
+  color: rgb(0, 110, 255) !important;
+}
+
+.btnHover:focus,
+.adminTag:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 0px solid transparent !important;
 }
 
 /* Page Not Found */
@@ -68,7 +85,6 @@ html {
 }
 
 .four_zero_four_bg {
-
   background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
   height: 400px;
   background-position: center;
@@ -227,7 +243,7 @@ html {
 
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: black;
+  /* background-color: black; */
 }
 
 ::-webkit-scrollbar-track {
@@ -238,7 +254,7 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #3cb3d7;
   border-radius: 50px;
-  border: 1px solid;
+  /* border: 1px solid; */
   cursor: pointer;
 }
 
@@ -687,9 +703,11 @@ figure:hover+span {
     width: 300px !important;
   }
 }
+
 .hover14_home figure {
   position: relative;
 }
+
 @-webkit-keyframes circle {
   0% {
     opacity: 1;

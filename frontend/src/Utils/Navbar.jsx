@@ -11,29 +11,32 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="navbar w-100 m-0">
+        <nav className="navbar w-100 shadow rounded-0" style={{background:'#ffffffbf',borderBottom:'0px solid'}}>
             <div className="d-flex w-100 justify-content-between align-items-center px-5 mx-2">
-                <a href='/' className='text-white text-decoration-none'>
+                <a href='/' className='text-decoration-none text-warning d-flex align-items-center' >
                     <img src={logo} width={40} className='rounded-2' />
                     &nbsp;
-                    <strong>RoboShop</strong>
+                    <strong style={{filter:'drop-shadow(1px 1px 1px #296192)'}}>RoboShop</strong>
                 </a>
                 <div className='show1000px'>
                     <div className='d-flex'>
-                        <div className='text-white py-1 adminTag'>{admin}</div>
+                        <button className='fw-semibold btn px-2 py-1 adminTag'>{admin}</button>
                         <a href='/'>
-                            <button className="btn btn-primary ms-2 " type="button" >
+                            <button className="btn btnHover ms-2 " type="button" >
+                            {/* <button className="btn btn-primary ms-2 " type="button" > */}
                                 Home
                             </button>
                         </a>
                         <a href='/all-products'>
-                            <button className="btn btn-primary ms-2 " type="button" >
+                            <button className="btn btnHover ms-2 " type="button" >
+                            {/* <button className="btn btn-primary ms-2 " type="button" > */}
                                 Products
                             </button>
                         </a>
                         {/* q */}
                         <div className="dropdown mx-1">
-                            <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                            <button className="btn btnHover dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                            {/* <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"> */}
                                 Technical
                             </button>
                             <ul className="dropdown-menu px-1" aria-labelledby="dropdownMenuButton1">
@@ -44,7 +47,8 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div className="dropleft btn-group mx-1">
-                            <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                            <button className="btn btnHover dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                            {/* <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"> */}
                                 Account
                             </button>
                             <ul className="dropdown-menu px-1" aria-labelledby="dropdownMenuButton">
