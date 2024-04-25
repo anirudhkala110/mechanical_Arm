@@ -15,6 +15,7 @@ import {
   MDBCheckbox
 }
   from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 function Register() {
   const [name, setName] = useState()
@@ -176,6 +177,7 @@ function Register() {
                         <input className='w-100 form-control' />
                       </div>
                       <button className='btn btn-success' onClick={handleVerifyOTP}>Verify OTP</button></>}
+                    <Link to='/login' class="text-decoration-none ms-2 btn btn-primary">Login Here!</Link>
 
                   </form>
 

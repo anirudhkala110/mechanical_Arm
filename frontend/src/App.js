@@ -16,6 +16,7 @@ import Register from './Authentication/Register';
 import DashBoard from './Components/Admin/Dashboard/DashBoard';
 import Footer from './Utils/Footer';
 import JoinUs from './Images/JoinUs.jpg'
+import ContactDetails from './Components/Contact/ContactDetails';
 
 export const userContext = createContext()
 
@@ -46,6 +47,7 @@ function App() {
                 <Route exact path='/Registerpage' element={<Register />} />
                 <Route exact path='/dashboard' element={<DashBoard />} />
                 <Route exact path='/detail/:id/:machineName/:location/:uploadedBy' element={<Details />} />
+                <Route exact path='/contact-detail/:userName/:phone/:email/:address' element={<ContactDetails />} />
                 <Route path='*' element={<PageNoteFound />} />
               </Routes>
             </div>
