@@ -19,7 +19,7 @@ const Navbar = () => {
                     <strong style={{ filter: 'drop-shadow(1px 1px 1px #296192)' }}>RoboShop</strong>
                 </a>
                 <div className='show1000px'>
-                    <div className='d-flex'>
+                    <div className='d-flex fw-semibold'>
                         <button className='fw-semibold btn px-2 py-1 adminTag'>{admin.user}</button>
                         <a href='/'>
                             <button className="btn btnHover ms-2 " type="button" >
