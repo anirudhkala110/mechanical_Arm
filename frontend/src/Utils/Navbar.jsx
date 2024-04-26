@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { userContext } from '../App';
-import { BrowserRouter as Router, Routes, Route, a, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, a, useNavigate, NavLink } from 'react-router-dom';
 import logo from '../Images/Logo.jpg'
 
 const Navbar = () => {
@@ -11,7 +11,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="navbar w-100 shadow rounded-0" style={{ background: 'rgb(255 255 255 / 90%)', borderBottom: '0px solid' }}>
+        <nav className="navbar w-100 shadow rounded-0" id='sidebar' style={{ background: 'rgb(255 255 255 / 90%)', borderBottom: '0px solid' }}>
             <div className="d-flex w-100 justify-content-between align-items-center px-5 mx-2">
                 <a href='/' className='text-decoration-none text-warning d-flex align-items-center' >
                     <img src={logo} width={40} className='rounded-2' />
@@ -21,18 +21,18 @@ const Navbar = () => {
                 <div className='show1000px'>
                     <div className='d-flex fw-semibold'>
                         <button className='fw-semibold btn px-2 py-1 adminTag'>{admin.user}</button>
-                        <a href='/'>
-                            <button className="btn btnHover fw-bold ms-2 " type="button" >
+                        <NavLink to='/'>
+                            <button className="btn btnHover fw-bold " type="button" >
                                 {/* <button className="btn btn-primary ms-2 " type="button" > */}
                                 Home
                             </button>
-                        </a>
-                        <a href='/all-products'>
-                            <button className="btn btnHover fw-bold ms-2 " type="button" >
+                        </NavLink>
+                        <NavLink to='/all-products'>
+                            <button className="btn btnHover fw-bold " type="button" >
                                 {/* <button className="btn btn-primary ms-2 " type="button" > */}
                                 Products
                             </button>
-                        </a>
+                        </NavLink>
                         {/* q */}
                         <div className="dropdown mx-1">
                             <button className="btn btnHover fw-bold dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
@@ -40,10 +40,10 @@ const Navbar = () => {
                                 Technical
                             </button>
                             <ul className="dropdown-menu p-0 rounded-0" aria-labelledby="dropdownMenuButton1">
-                                <a href='/about'><button className='btn rounded-0 technicalDropDownbtn' style={{ width: '100%' }}>About</button></a>
-                                <a href='/contact-us'><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Contact</button></a>
-                                <a href='/services'> <button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Services</button></a>
-                                <a href="/support"><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Support</button></a>
+                                <NavLink to='/about'><button className='btn rounded-0 technicalDropDownbtn' style={{ width: '100%' }}>About</button></NavLink>
+                                <NavLink to='/contact-us'><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Contact</button></NavLink>
+                                <NavLink to='/services'> <button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Services</button></NavLink>
+                                <NavLink to="/support"><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Support</button></NavLink>
                             </ul>
                         </div>
                         <div className="dropleft btn-group mx-1">
@@ -52,10 +52,10 @@ const Navbar = () => {
                                 Account
                             </button>
                             <ul className="dropdown-menu p-0 rounded-0" aria-labelledby="dropdownMenuButton">
-                                <a href={`/profile/${admin}`}><button className='btn rounded-0 technicalDropDownbtn' style={{ width: '100%' }}>Profile</button></a>
+                                <NavLink to={`/profile/${admin}`}><button className='btn rounded-0 technicalDropDownbtn' style={{ width: '100%' }}>Profile</button></NavLink>
                                 {/* <button className='btn btn-primary mt-1' style={{ width: '100%' }}>Dashboard</button> */}
-                                <a href="/login"><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Login</button></a>
-                                <a href='/register'><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Sign Up</button></a>
+                                <NavLink to="/login"><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Login</button></NavLink>
+                                <NavLink to='/register'><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Sign Up</button></NavLink>
                                 <button className='btn btn-danger rounded-0' style={{ width: '100%' }}>Logout</button>
                             </ul>
                         </div>
@@ -73,17 +73,17 @@ const Navbar = () => {
                     </div>
                     <hr />
                     <div className="offcanvas-body " style={{ minHeight: "500px" }}>
-                        <a href='/'><button className="btn btn-primary my-1 w-100 rounded-0 border" type="button" >Home</button></a>
-                        <a href='/about' className='btn btn-primary my-1 w-100 rounded-0 border'>About</a>
-                        <a href='/contact-us' className='btn btn-primary my-1 w-100 rounded-0 border'>Contact</a>
-                        <a href='/all-products'><button className="btn btn-primary my-1 w-100 rounded-0 border" type="button" >Products</button></a>
-                        <a href='/services' className='btn btn-primary my-1 w-100 rounded-0 border'>Services</a>
-                        <a href={`/profile/${admin}`} className='btn btn-primary my-1 w-100 rounded-0 border'>Profile</a>
-                        <a href='/dashboard' className='btn btn-primary my-1 w-100 rounded-0 border'>Dashboard</a>
-                        <a href='/login' className='w-50 btn btn-success rounded-0 border'>Login</a>
-                        <a href='/register' className='w-50 btn btn-info rounded-0 border'>Sign Up</a>
-                        <a href='/home' className='w-50 btn btn-danger rounded-0 border'>Logout</a>
-                        <a href='/support' className='btn btn-warning my-1 w-50 rounded-0 border'>Support</a>
+                        <NavLink to='/' className="btn  my-1 w-100 rounded-0 linkTabs" type="button" >Home</NavLink>
+                        <NavLink to='/about' className='btn  my-1 w-100 rounded-0 linkTabs'>About</NavLink>
+                        <NavLink to='/contact-us' className='btn  my-1 w-100 rounded-0 linkTabs'>Contact</NavLink>
+                        <NavLink to='/all-products' className="btn  my-1 w-100 rounded-0 linkTabs" type="button" >Products</NavLink>
+                        <NavLink to='/services' className='btn  my-1 w-100 rounded-0 linkTabs'>Services</NavLink>
+                        <NavLink to={`/profile/${admin}`} className='btn  my-1 w-100 rounded-0 linkTabs'>Profile</NavLink>
+                        <NavLink to='/dashboard' className='btn  my-1 w-100 rounded-0 linkTabs'>Dashboard</NavLink>
+                        <NavLink to='/login' className='w-100 btn my-1 rounded-0 linkTabs'>Login</NavLink>
+                        <NavLink to='/register' className='w-100 btn my-1  rounded-0 linkTabs'>Sign Up</NavLink>
+                        <NavLink to='/home' className='w-100 btn my-1 rounded-0 linkTabs'>Logout</NavLink>
+                        <NavLink to='/support' className='btn my-1 w-100 rounded-0 linkTabs'>Support</NavLink>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Poppins:wght@300&family=Roboto&display=swap');
 
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+
 html {
   margin: 0;
   font-family: "Poppins";
@@ -15,7 +16,30 @@ body {
   text-align: center;
 }
 
-.productSample:hover + .pageflip {
+#sidebar a.active {
+  /* border-bottom: solid rgb(0, 145, 255) !important; */
+  border-bottom: solid rgb(0, 110, 255) !important;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+}
+
+.linkTabs {
+  box-shadow: none !important;
+  border-bottom: solid rgb(0, 238, 255) !important;
+  background: rgba(0, 119, 255, 0.37) !important;
+  /* color: white !important; */
+  transition: .2s ease;
+  border-bottom: 2px;
+}
+
+.linkTabs:hover {
+  background: rgba(4, 122, 122, 0.749) !important;
+  color: rgb(0, 0, 0) !important;
+  font-weight: 600;
+}
+
+.productSample:hover+.pageflip {
   display: block;
   position: absolute;
   z-index: 25;
@@ -25,9 +49,10 @@ body {
   right: 0;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…pZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
-  background-image: linear-gradient(to right bottom,#aaa 50%,#fff 51%);
+  background-image: linear-gradient(to right bottom, #aaa 50%, #fff 51%);
   transition: all 0.3s;
 }
+
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
