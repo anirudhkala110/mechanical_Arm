@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import './App.css';
 import Navbar from './Utils/Navbar';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import PageNoteFound from './Utils/PageNoteFound';
 import Home from './Components/Home/Home';
