@@ -25,7 +25,7 @@ const Contact = () => {
                                     <div class="mas">
                                         <ul key={index} className=' card border-0 py-2 ps-2' style={{ listStyle: 'none' }}>
                                             <li>Name : {userName}</li>
-                                            <li>Contact Number : {phone}</li>
+                                            <li>Contact No. : {phone}</li>
                                             <li>Address : {address}</li>
                                             <li>Email ID: {email}</li>
                                         </ul>
