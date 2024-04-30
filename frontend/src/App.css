@@ -795,8 +795,7 @@ figure:hover+span {
 
 }
 
-.productSample:hover+
-.designBottom {
+.productSample:hover+.designBottom {
   /* background-image: linear-gradient(24deg, #00b2ff40, #00ffea36, #00aaff1c); */
   /* transform: scale(1.01); */
   /* background: rgba(0, 108, 154, 0.318) !important; */
@@ -856,3 +855,22 @@ figure:hover+span {
 }
 
 /* technicalDropDownbtn */
+
+/* Contact List Hover Effect */
+
+.hoverContactList {
+  border: 1px solid rgba(0, 0, 0, 0.244) !important;
+  transition: .2s ease-in-out;
+}
+
+.card {
+  background: transparent !important;
+}
+
+.hoverContactList:hover {
+  border: 1px solid rgba(0, 34, 255, 0.546) !important;
+  background: #c8e5f3d3 !important;
+  /* background: rgba(0, 204, 255, 0.359) !important; */
+}
+
+/* Contact List Hover Effect */

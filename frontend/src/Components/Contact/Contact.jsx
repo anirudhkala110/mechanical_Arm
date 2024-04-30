@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import './Contact.css'
 
 const Contact = () => {
     const data = 10;
@@ -18,16 +19,28 @@ const Contact = () => {
                 <center className='alert alert-info rounded-0 fs-4 fw-semibold'>Contact Owners</center>
                 <div className='container row'>
                     {shopKeepers.map((index) => (
-                        <div className='col-sm-12 col-lg-4 col-md-6 col-xl-4 col-xxl-3 p-2'>
-                            <Link to={`/contact-detail/${userName}/${phone}/${email}/${address}`} className='text-decoration-none'>
-                                <ul key={index} className=' card py-2 ps-2' style={{ listStyle: 'none' }}>
-                                    <li>Name : {userName}</li>
-                                    <li>Contact Number : {phone}</li>
-                                    <li>Address : {address}</li>
-                                    <li>Email ID: {email}</li>
-                                </ul>
+                        <div className='col-sm-12  col-lg-4 col-md-6 col-xl-4 col-xxl-3 p-2 '>
+                            <Link to={`/contact-detail/${userName}/${phone}/${email}/${address}`} className='text-decoration-none '>
+                                <div class="butn-container-2 hoverContactList ">
+                                    <div class="mas">
+                                        <ul key={index} className=' card border-0 py-2 ps-2' style={{ listStyle: 'none' }}>
+                                            <li>Name : {userName}</li>
+                                            <li>Contact Number : {phone}</li>
+                                            <li>Address : {address}</li>
+                                            <li>Email ID: {email}</li>
+                                        </ul>
+                                    </div>
+                                    {/* <div type="button" name="Hover">
+                                        <ul key={index} className=' card border-0 py-2 ps-2' style={{ listStyle: 'none' }}>
+                                            <li>Name : {userName}</li>
+                                            <li>Contact Number : {phone}</li>
+                                            <li>Address : {address}</li>
+                                            <li>Email ID: {email}</li>
+                                        </ul>
+                                    </div> */}
+                                </div>
                             </Link>
-                            <hr />
+                            {/* <hr /> */}
                         </div>
                     ))}
                 </div>
