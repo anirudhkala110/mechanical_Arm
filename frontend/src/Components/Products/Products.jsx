@@ -188,10 +188,10 @@ const Products = () => {
                                             <li className=''><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>{data.machineName}</li>
                                             <li className=''><strong>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </strong>{data.location}</li>
                                             <li className=''><strong>Uploaded By&nbsp;&nbsp;&nbsp;: </strong>{data.uploadedBy}</li>
-                                            <p>{truncate(Str, 100)}</p>
+                                            {/* <p>{truncate(Str, 50)}</p> */}
                                             {/* <p>The manipulator forms the main body of the robotic arm, often comprising multiple segments connected by joints. These joints serve as points of articulation, enabling different degrees of freedom and motion. The end effector, attached to the arm's end, performs specific tasks and can vary widely depending on the application. It may include grippers, welding torches, cameras, or sensors. Actuators, such as electric, hydraulic, or pneumatic mechanisms, provide motion to the arm's joints, allowing it to execute precise movements.</p> */}
 
-                                            <a href={`/detail/${id}/${data.machineName}/${data.location}/${data.uploadedBy}`}> <button className='btn btn-info'>More . . .</button></a>
+                                            <a href={`/detail/${id}/${data.machineName}/${data.location}/${data.uploadedBy}`}> <button className='btn btn-info'>Descriptions ... ...</button></a>
 
                                         </ul>
                                     </div>

@@ -16,7 +16,7 @@ const Contact = () => {
         <div className='min-vh-100'>
             <div className='container pt-3'>
                 {/* Details of the ShopKeepers with contact number */}
-                <center className='alert alert-info rounded-0 fs-4 fw-semibold'>Contact Owners</center>
+                <center className='alert alert-info rounded-0 fs-4 fw-semibold'>Seller Partner</center>
                 <div className='container row'>
                     {shopKeepers.map((index) => (
                         <div className='col-sm-12  col-lg-4 col-md-6 col-xl-4 col-xxl-3 p-2 '>
