@@ -20,11 +20,12 @@ import { send } from "process";
 import nodemailer from 'nodemailer'
 import fs from 'fs';
 import CourseModel from "./models/RegisteredModel.js";
+import UserModelUpdate from "./models/UserUpdatedModel.js";
 
 
 const app = express()
 app.use(cors({
-    origin: ["http://localhost:3032" ],
+    origin: ["http://localhost:3032"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }))
@@ -44,6 +45,31 @@ const db = mysql.createConnection({
 
 app.use('./Images', express.static('Images'))
 app.use('./pdf', express.static('pdf'))
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'Public/Images')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
+    }
+})
+const storage2 = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'Public/pdf')
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now()
+        cb(null, uniqueSuffix + file.originalname);
+    }
+})
+const upload2 = multer({
+    storage: storage2
+})
+
+const upload = multer({
+    storage: storage
+})
 const port = process.env.PORT || 5020
 
 /* Registration API  */
@@ -164,28 +190,30 @@ app.post('/verifyOTP', verifyOTP, async (req, res) => {
 })
 
 /* Verify Email */
-app.post('/register/email', async (req, res) => {
+app.post('/register/email', upload2.single('profilePic'), async (req, res) => {
     const username = req.body.username
     const phone = req.body.phone
     const role = req.body.role
-    let courseType = req.body.courseType
-    let language = req.body.language
     const email = req.body.email
-    console.log(email)
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/;
-    const password = username + phone
-    console.log(password)
-    if (!language) {
-        language = 'N/A'
-    }
-    if (!courseType) {
-        courseType = 'N/A'
-    }
+    const password = req.body.password
+    const cpassword = req.body.cpassword
+    const village = req.body.village
+    const city = req.body.city
+    const State = req.body.state
+    const zipCode = req.body.zipCode
+    const profilePic = req.file.filename
+    console.log(password, username, phone, role, email, village, city, State, zipCode, profilePic)
+
+
     if (role == 'admin') {
         const check = getAdmin()
         if (check) {
             return res.json({ msg: "Not Authorised...", msg_type: "Error", grant: false })
         }
+    }
+    if (cpassword != password) {
+        return res.json({ msg: "Password and Coonfirm Password should same", msg_type: "error" })
     }
     if (phone.length != 10 && phone.length != 12) {
         return res.json({ msg: "Phone number should be of 10 digit or 12 digit", msg_type: "error" })
@@ -216,12 +244,13 @@ app.post('/register/email', async (req, res) => {
                     let hashPassword = await bcrypt.hash(password, 10)
                     console.log("Hased Password : ", hashPassword)
                     await sendEmail(email, `OTP Verification Completed, \n Your Email verification password is given below. Save it for future logins.`, `\n\n${password} \n`);
-                    const registerUser = 'INSERT INTO `userlogins` (username,role, email, password, phone,courseType,language) VALUES (?,?,?,?,?,?,?) '
-                    const result = await db.promise().query(registerUser, [username, role, email, hashPassword, phone, courseType, language]);
+                    console.log(username, role, email, hashPassword, phone, village, city, State, zipCode)
+                    const registerUser = 'INSERT INTO `userlogins` (username,role, email, password, phone,village,city,State,zipCode,profilePic) VALUES (?,?,?,?,?,?,?,?,?,?) '
+                    const result = await db.promise().query(registerUser, [username, role, email, hashPassword, phone, village, city, State, zipCode, profilePic]);
                     if (!result) {
                         console.log("not entered")
                     } else {
-                        return res.json({ msg: "Registration Successful . . .\n Password is sent to your registered email ", msg_type: "good" })
+                        return res.json({ msg: "Registration Successful . . .\n Password is sent to your registered email. Please login for further process. ", msg_type: "good" })
                     }
                 }
             }
@@ -362,10 +391,10 @@ app.post('/login', (req, res) => {
                         return res.json({ msg: "Password Didn't Match. .  Please try again !", msg_type: "error" })
                     }
                     else {
-                        const token = jwt.sign({ email: result[0].email, username: result[0].username, id: result[0].id, role: result[0].role, verified: result[0].verified }, process.env.JWT_SECRET_KEY, {
-                            expiresIn: '5m',           // Expiration time
-                            httpOnly: true,            // HTTP Only flag
-                            secure: true               // Secure flag
+                        const token = jwt.sign({ email: result[0].email, username: result[0].username, id: result[0].id, role: result[0].role, verified: result[0].verified, profilePic: result[0].profilePic }, process.env.JWT_SECRET_KEY, {
+                            expiresIn: '2d',           // Expiration time
+                            // httpOnly: true,            // HTTP Only flag
+                            // secure: true               // Secure flag
                         })
                         res.cookie('token', token)
                         return res.json({ msg: "Login Successfully . . .", msg_type: "good" })
@@ -394,6 +423,7 @@ const verifyUser = (req, res, next) => {
                 req.userId = decoded.id;
                 req.postedby = decoded.username;
                 req.role = decoded.role;
+                req.profilePic = decoded.profilePic;
                 req.verified = decoded.verified
                 next()
             }
@@ -413,6 +443,7 @@ const verifyForgotLink = (req, res, next) => {
                 req.username = decoded.username;
                 req.userId = decoded.id;
                 req.role = decoded.role;
+                req.profilePic = decoded.profilePic
                 req.token = forgottokenchk
                 next()
             }
@@ -421,7 +452,7 @@ const verifyForgotLink = (req, res, next) => {
 }
 
 app.get('/loggin', verifyUser, (req, res) => {
-    return res.json({ email: req.email, username: req.username, role: req.role, verified: req.verified, login: true })
+    return res.json({ email: req.email, username: req.username, role: req.role, verified: req.verified, profilePic: req.profilePic, login: true })
 })
 app.get('/forgotlinkChk/:forgottoken', verifyForgotLink, (req, res) => {
     const { forgottoken } = req.params; // Accessing token from req.body
@@ -477,13 +508,29 @@ app.get('/get_data_to_admin/:getData', verifyUser, async (req, res) => {
         return res.json({ msg: 'You are not admin. You are trying to access protected data. Your account could be deleted if you attempt to fetch the data again.', msg_type: 'error' });
     }
 });
-
-
+/* Get Logged in User Details */
+app.get('/getUserDetails2', async (req, res) => {
+    try {
+        const users = await UserModelUpdate.findAll();
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ msg: 'Error retrieving users', msg_type: 'error' });
+    }
+})
+app.get('/getUserDetails', async (req, res) => {
+    try {
+        const users = await UserModel.findAll();
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ msg: 'Error retrieving users', msg_type: 'error' });
+    }
+})
 /* User Logged In or Not */
 
 /* Logout */
 
 app.get('/logout', (req, res) => {
+    console.log("Logout Processing...")
     res.clearCookie('token')
     return res.json({ msg: "Logout Successful . . .", msg_type: "good" })
 })
@@ -491,24 +538,9 @@ app.get('/logout', (req, res) => {
 /* Logout Ends */
 
 /* Uploading the post with images */
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'Public/Images')
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
-    }
-})
+
 //Uploading PDF
-const storage2 = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'Public/pdf')
-    },
-    filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now()
-        cb(null, uniqueSuffix + file.originalname);
-    }
-})
+
 // const storage2 = multer.diskStorage({
 //     destination: (req, file, cb) => {
 //         cb(null, 'Public/pdf')
@@ -519,26 +551,51 @@ const storage2 = multer.diskStorage({
 // })
 
 // const upload2 = multer({dest:'Public/pdf'})
-const upload2 = multer({
-    storage: storage2
-})
-
-const upload = multer({
-    storage: storage
-})
 //Uploading PDFs
-app.post('/upload_pdf', upload2.single('file'), async (req, res) => {
-    const title = req.body.topic
-    const filename = req.file.filename
-    const moduleNo = req.body.module
+// app.post('/upload_pdf', upload2.single('file'), async (req, res) => {
+//     const title = req.body.topic
+//     const filename = req.file.filename
+//     const moduleNo = req.body.module
+//     try {
+//         await PdfModel.create({ title: title, pdfName: filename, moduleNo: moduleNo })
+//         return res.json({ msg: "Upload Successfully", msg_type: 'good' })
+//     }
+//     catch (err) {
+//         return res.json({ msg: 'Uploading Error from Backend', msg_type: 'error' })
+//     }
+// })
+
+app.post('/upload_pdf', upload2.fields([
+    { name: 'addharCardpic', maxCount: 1 },
+    { name: 'shopPic', maxCount: 1 },
+    { name: 'DLPan', maxCount: 1 },
+    { name: 'shopLicense', maxCount: 1 }
+]), async (req, res) => {
+    const { email, gstNo, addhar, shopName } = req.body;
+
+    const files = req.files;
+
     try {
-        await PdfModel.create({ title: title, pdfName: filename, moduleNo: moduleNo })
-        return res.json({ msg: "Upload Successfully", msg_type: 'good' })
+        const userUpdateData = {
+            email,
+            gstNo,
+            addhar,
+            shopName,
+            shopPic: files.shopPic ? files.shopPic[0].filename : null,
+            DLPan: files.DLPan ? files.DLPan[0].filename : null,
+            addharCardName: files.addharCardpic ? files.addharCardpic[0].filename : null,
+            shopLicense: files.shopLicense ? files.shopLicense[0].filename : null
+        };
+        // console.log(userUpdateData)
+
+        await UserModelUpdate.create(userUpdateData);
+        return res.json({ msg: "Upload Successfully", msg_type: 'good' });
+    } catch (err) {
+        console.log(err)
+        return res.json({ msg: 'Uploading Error from Backend', msg_type: 'error' });
     }
-    catch (err) {
-        return res.json({ msg: 'Uploading Error from Backend', msg_type: 'error' })
-    }
-})
+});
+
 
 //Getting the PDF files in frontend
 app.get('/get_pdf', async (req, res) => {

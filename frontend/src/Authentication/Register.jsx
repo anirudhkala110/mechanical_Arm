@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios"
 
 
@@ -47,7 +47,7 @@ const states = [
   "Uttarakhand",
   "West Bengal"
 ]
-const roles = ['Admin', 'Seler', 'Customer']
+const roles = ['Admin', 'Seller', 'Customer']
 function Register() {
   const [name, setName] = useState()
   const [email, setEmail] = useState()
@@ -61,14 +61,24 @@ function Register() {
   const [addharNo, setAddharNo] = useState()
   const [addharCardpic, setAddharcardpic] = useState()
   const [shopName, setShopname] = useState()
+  const [shopPic, setShopPic] = useState()
   const [village, setVillage] = useState()
   const [city, setCIty] = useState()
   const [zipCode, setZipCode] = useState()
   const [profilePic, setProfilePic] = useState()
-  const [shopPic, setShopPic] = useState()
   const [DLPan, setDLPan] = useState()
+  const [shopLicense, setShopLicense] = useState()
 
-
+  const [notAdmin, setNotAdmin] = useState(false)
+  useEffect(() => {
+    axios.get('http://localhost:5020/getAdmin')
+      .then(res => {
+        setNotAdmin(res.validation)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  })
 
   const handleRetypePasswordChange = (e) => {
     setCpassword(e.target.value);
@@ -99,22 +109,40 @@ function Register() {
 
   const HandleRegiserPage = (e) => {
     e.preventDefault()
-    console.log(name, email, password, cpassword, village, city, State, zipCode, role)
-    // axios.post('http://localhost:5020/register/email', { name: name, email: email, password: password, cpassword: cpassword, phone: phone })
-    //   .then(res => {
-    //     console.log(res)
-    //     setMsg(res.data.msg)
-    //     setMsg_type(res.data.msg_type)
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
+    const formData = new FormData();
+    formData.append('profilePic', profilePic)
+    formData.append('username', name)
+    formData.append('email', email)
+    formData.append('password', password)
+    formData.append('cpassword', cpassword)
+    formData.append('phone', phone)
+    formData.append('role', role)
+    formData.append('city', city)
+    formData.append('state', State)
+    formData.append('zipCode', zipCode)
+    formData.append('village', village)
+
+    // console.log(name, email, password, cpassword, village, city, State, zipCode, role, phone, gstIn, addharNo, addharCardpic, shopName, profilePic, shopPic, DLPan, shopLicense)
+    axios.post('http://localhost:5020/register/email', formData, {
+      headers: {
+          'Content-Type': 'multipart/form-data'
+      }
+  })
+      .then(res => {
+        console.log(res)
+        setMsg(res.data.msg)
+        setMsg_type(res.data.msg_type)
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
   }
   const [disableEmail, setDisableEmail] = useState(false)
   const [verified, setVerified] = useState(false)
   const [otpSent, setOtpSent] = useState(true)
   const [OTP, setOTP] = useState()
+
 
   const handleSendOTP = (e) => {
     e.preventDefault()
@@ -172,34 +200,36 @@ function Register() {
       <MDBCard className='text-black m-5' style={{ borderRadius: '' }}>
         <MDBCardBody>
           <center><p classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 " style={{ fontSize: '40px', fontWeight: '500' }}>Welcome to <strong style={{ color: '#ffc107' }}>RoboShop</strong></p></center>
-          <MDBRow>
-            <MDBCol md='10' lg='6' className='d-flex align-items-center'>
-              <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp' fluid />
-            </MDBCol>
-
+          <hr />
+          <MDBRow className='d-flex justify-content-center'>
             {
               verified ?
-                <MDBCol md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
-
-
+                <MDBCol md='12' lg='12' className='order-2 order-lg-1 d-flex flex-column align-items-center' style={{ maxWidth: '500px' }}>
+                  {msg && <center className={`alert ${msg_type === 'error' ? 'alert-danger' : 'alert-success'}`}>{msg}</center>}
+                  <div className='input-group my-2'>
+                    <label>Role</label>
+                    <select className='form-select w-100' onChange={e => setRole(e.target.value)}>
+                      {
+                        roles.map((data, idx) => (
+                          <option key={idx} value={data} selected={data === 'Seller' ? true : false} disabled={!notAdmin && data === 'Admin'}>{data}</option>
+                        ))
+                      }
+                    </select>
+                  </div>
+                  <div className='input-group my-2'>
+                    <label>Profile Picture</label>
+                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='' type='file' onChange={e => setProfilePic(e.target.files[0])} />
+                  </div>
                   <div className="input-group my-2 ">
                     <label>Your Name</label>
                     <input id='form1' type='text' className='w-100 form-control  rounded-0' onChange={e => setName(e.target.value)} />
                     {/* <MDBIcon fas icon="user me-3" size='lg' /> */}
                   </div>
-
                   <div className="input-group my-2">
                     <label>Entered Email</label>
                     {/* <MDBIcon fas icon="envelope me-3" size='lg' /> */}
-                    <input className="w-100 form-control  rounded-0" label='Your Email' id='form2' type='email' value={email} disabled />
+                    <input className="w-100 form-control  rounded-0" label='Your Email' id='' type='email' value={email} disabled />
                   </div>
-
-                  <div className="input-group my-2 ">
-                    {/* <MDBIcon fas icon="envelope me-3" size='lg' /> */}
-                    <label>Mobile Number</label>
-                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='form2' type='number' onChange={e => setphone(e.target.value)} />
-                  </div>
-
                   <div className="input-group my-2 ">
                     {/* <MDBIcon fas icon="lock me-3" size='lg' /> */}
                     <label>Password</label>
@@ -229,13 +259,18 @@ function Register() {
                     {alertMessage && <div style={{ color: alertColor }}>{alertMessage}</div>}
 
                   </div>
+                  <div className="input-group my-2 ">
+                    {/* <MDBIcon fas icon="envelope me-3" size='lg' /> */}
+                    <label>Mobile Number</label>
+                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='' type='number' onChange={e => setphone(e.target.value)} />
+                  </div>
                   <div className='input-group my-2'>
                     <label>Village</label>
-                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='form2' type='text' onChange={e => setVillage(e.target.value)} />
+                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='' type='text' onChange={e => setVillage(e.target.value)} />
                   </div>
                   <div className='input-group my-2'>
                     <label>City</label>
-                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='form2' type='text' onChange={e => setCIty(e.target.value)} />
+                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='' type='text' onChange={e => setCIty(e.target.value)} />
                   </div>
                   <div className='input-group my-2'>
                     <label>State</label>
@@ -249,33 +284,7 @@ function Register() {
                   </div>
                   <div className='input-group my-2'>
                     <label>Zip Code / Postal Code / Pin Code</label>
-                    <input className="w-100 form-control  rounded-0" value={zipCode} label='Your Mobile Number' id='form2' type='number' onChange={handleZip} />
-                  </div>
-                  <div className='input-group my-2'>
-                    <label>Role</label>
-                    <select className='form-select w-100' onChange={e => setRole(e.target.value)}>
-                      {
-                        roles.map((data, idx) => (
-                          <option key={idx} value={data}>{data}</option>
-                        ))
-                      }
-                    </select>
-                  </div>
-                  <div className='input-group my-2'>
-                    <label>GST Number</label>
-                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='form2' type='text' onChange={e => setGSTin(e.target.value)} />
-                  </div>
-                  <div className='input-group my-2'>
-                    <label>Addhar Card Number</label>
-                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='form2' type='number' value={addharNo} onChange={handleAddarNo} />
-                  </div>
-                  <div className='input-group my-2'>
-                    <label>Addhar Card Image</label>
-                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='form2' type='file' onChange={e => setAddharcardpic(e.target.files)} />
-                  </div>
-                  <div className='input-group my-2'>
-                    <label>Shop Image with you</label>
-                    <input className="w-100 form-control  rounded-0" label='Your Mobile Number' id='form2' type='file' onChange={e => setShopPic(e.target.files)} />
+                    <input className="w-100 form-control  rounded-0" value={zipCode} label='Your Mobile Number' id='' type='number' onChange={handleZip} />
                   </div>
                   {/* <div className='mb-4'>
   <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
@@ -286,6 +295,9 @@ function Register() {
                     <a href="/login"><button className='btn btn-info w-100'>Login</button></a>
                   </div>
                 </MDBCol> : <div>
+                  <MDBCol md='10' lg='6' className='d-flex align-items-center justify-content-center'>
+                    <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp' fluid />
+                  </MDBCol>
                   <hr />
                   <center className='fs-4  fw-semibold'>Enter your email for Registration and OTP validation</center>
                   <hr />

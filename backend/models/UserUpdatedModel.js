@@ -25,55 +25,46 @@ const sequelize = new Sequelize({
     logging: false
 });
 
-const UserModel = sequelize.define('userlogin', {
+const UserModelUpdate = sequelize.define('userUpdate', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
-    role: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: 'Seller'
-    },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
-    password: {
+    gstNo: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
     },
-    phone: {
+    addhar: {
         type: DataTypes.BIGINT,
         allowNull: false,
-        unique: true
     },
-    profilePic: {
+    addharCardName: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    village: {
+    shopName: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    city: {
+
+    shopPic: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    State: {
+    DLPan: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    zipCode: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+    shopLicense: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     verified: {
         type: DataTypes.INTEGER,
@@ -92,9 +83,9 @@ const UserModel = sequelize.define('userlogin', {
 // sequelize.sync({ alter: true })  This will create the table if it doesn't exist and if exists then delete the old one and then create
 sequelize.sync({ force: false, logging: false }) // This will create the table if it doesn't exist and if exists then delete the old one and then create
     .then(() => {
-        console.log('User Table for Robotic Arms synchronized');
+        console.log('User Update Table for Robotic Arms synchronized');
     })
     .catch(error => {
         console.error('Error synchronizing tables:', error);
     });
-export default UserModel
+export default UserModelUpdate

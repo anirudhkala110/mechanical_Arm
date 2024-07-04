@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './Utils/Navbar';
 
@@ -18,17 +18,31 @@ import DashBoard from './Components/Admin/Dashboard/DashBoard';
 import Footer from './Utils/Footer';
 import JoinUs from './Images/JoinUs.jpg'
 import ContactDetails from './Components/Contact/ContactDetails';
+import UpdatedProfile from './Components/Admin/Profile/UpdatedProfile';
+import axios from 'axios';
 
 export const userContext = createContext()
 
 function App() {
-  const [admin, setAdmin] = useState({ user: "Admin", img: JoinUs })
-  // const [admin, setAdmin] = useState("Admin")
+  const [admin, setAdmin] = useState()
+  const [userLoginData, setUseLoginData] = useState([])
+  useEffect(() => {
+    axios.get('http://localhost:5020/loggin')
+      .then(res => {
+        // console.log(res)
+        setUseLoginData(res.data)
+        if (res.data.role === 'Admin')
+          setAdmin(true)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  })
 
   return (
     <>
       <div className='' style={{ minWidth: "350px" }}>
-        <userContext.Provider value={admin}>
+        <userContext.Provider value={userLoginData}>
           <Router>
             <div className='navbar-fixed-top text-black'>
               <Navbar />
@@ -43,9 +57,10 @@ function App() {
                 <Route exact path='/services' element={<Services />} />
                 <Route exact path='/support' element={<Support />} />
                 <Route exact path='/profile/:user' element={<Profile />} />
-                <Route exact path='/login' element={<Login />} />
-                <Route exact path='/register' element={<Register />} />
-                <Route exact path='/Registerpage' element={<Register />} />
+                <Route exact path='/profile/updated' element={<UpdatedProfile />} />
+                <Route exact path='/login' element={ <Login />} />
+                <Route exact path='/register' element={ <Register />} />
+                <Route exact path='/Registerpage' element={ <Register />} />
                 <Route exact path='/dashboard' element={<DashBoard />} />
                 <Route exact path='/detail/:id/:machineName/:location/:uploadedBy' element={<Details />} />
                 <Route exact path='/contact-detail/:userName/:phone/:email/:address' element={<ContactDetails />} />
