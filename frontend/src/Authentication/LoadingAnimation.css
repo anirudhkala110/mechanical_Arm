@@ -1,0 +1,18 @@
+.loadingAnimation {
+  animation: animate 1s linear infinite !important;
+  /* Added timing function and infinite repetition */
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.easeInOut {
+  transition: .3s ease-in-out;
+}

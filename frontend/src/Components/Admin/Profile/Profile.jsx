@@ -80,33 +80,81 @@ function Profile() {
     const HandleRegisterPage = (e) => {
         e.preventDefault();
         console.log(email, gstNo, addharNo, shopName, addharCardpic, profilePic, shopPic, DLPan, shopLicense);
+        if (!email || email === '' || email === null) {
+            setMsg('Register the Email First...')
+            setMsg_type('error')
+            return
+        }
+        else if (!gstNo || gstNo === '' || gstNo === null) {
+            setMsg('Enter the GST No. please...')
+            setMsg_type('error')
+            return
+        }
+        else if (!addharNo || addharNo === '' || addharNo === null) {
+            setMsg('Enter the Addhar Card No. please...')
+            setMsg_type('error')
+            return
+        }
+        else if (!shopName || shopName === '' || shopName === null) {
+            setMsg('Enter the Shop Name please...')
+            setMsg_type('error')
+            return
+        }
+        else if (!addharCardpic || addharCardpic === '' || addharCardpic === null) {
+            setMsg('Select the Addhar Card Image  please...')
+            setMsg_type('error')
+            return
+        }
+        else if (!profilePic || profilePic === '' || profilePic === null) {
+            setMsg('Select the Profile Picture  please...')
+            setMsg_type('error')
+            return
+        }
+        else if (!shopPic || shopPic === '' || shopPic === null) {
+            setMsg('Select the Shop Picture  please...')
+            setMsg_type('error')
+            return
+        }
+        else if (!DLPan || DLPan === '' || DLPan === null) {
+            setMsg('Select the Driving License or PAN Card Picture  please...')
+            setMsg_type('error')
+            return
+        }
+        else if (!shopLicense || shopLicense === '' || shopLicense === null) {
+            setMsg('Select the Shpo License Picture  please...')
+            setMsg_type('error')
+            return
+        }
 
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('gstNo', gstNo);
-        formData.append('addhar', addharNo);
-        formData.append('shopName', shopName);
-        formData.append('addharCardpic', addharCardpic);
-        formData.append('shopPic', shopPic);
-        formData.append('DLPan', DLPan);
-        formData.append('shopLicense', shopLicense);
+        // if (email && gstNo && addharNo && shopName && addharCardpic && profilePic && shopPic && DLPan && shopLicense)
+        else {
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('gstNo', gstNo);
+            formData.append('addhar', addharNo);
+            formData.append('shopName', shopName);
+            formData.append('addharCardpic', addharCardpic);
+            formData.append('shopPic', shopPic);
+            formData.append('DLPan', DLPan);
+            formData.append('shopLicense', shopLicense);
 
-        axios.post('http://localhost:5020/upload_pdf', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-            .then(res => {
-                console.log(res);
-                setMsg(res.data.msg);
-                setMsg_type(res.data.msg_type);
-                if (res.data.msg_type === 'good') {
-                    window.location.href = '/profile/updated'
+            axios.post('http://localhost:5020/upload_pdf', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
                 }
             })
-            .catch(err => {
-                console.log(err);
-            });
+                .then(res => {
+                    console.log(res);
+                    setMsg(res.data.msg);
+                    setMsg_type(res.data.msg_type);
+                    if (res.data.msg_type === 'good') {
+                        window.location.href = '/profile/updated'
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
     };
 
     const [disableEmail, setDisableEmail] = useState(false)
@@ -136,6 +184,7 @@ function Profile() {
                     <MDBCardBody>
                         <center><p classNAme="text-center  fw-bold mb-5 mx-1 mx-md-4 mt-4 " style={{ fontSize: '40px', fontWeight: '500' }}>Welcome to <strong style={{ color: '#ffc107' }}>RoboShop</strong></p></center>
                         <center><p classNAme="text-center fs-3 fw-bold mb-5 mx-1 mx-md-4 mt-4  " style={{ fontSize: '', fontWeight: '900' }}>Please Update the Data for Enabling your services...</p></center>
+                        <center><div className={`alert ${msg_type === 'error' ? 'alert-danger text-danger fw-bolder' : 'alert-success'}`}>{msg}</div></center>
                         <hr />
                         <MDBRow className='d-flex justify-content-center'>
                             {

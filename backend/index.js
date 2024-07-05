@@ -86,12 +86,12 @@ const getAdmin = () => {
             }
             else {
                 if (chkAdmin.length >= 2) {
-                    console.log(chkAdmin.length)
-                    res.json(chkAdmin.length)
+                    // console.log(chkAdmin.length)
+                    // res.json(chkAdmin.length)
                     return false
                 }
                 else {
-                    res.json(chkAdmin.length)
+                    // res.json(chkAdmin.length)
                     return true
                 }
             }
@@ -108,12 +108,12 @@ app.get('/getAdmin', async (req, res) => {
         }
         else {
             if (chkAdmin.length >= 2) {
-                console.log(chkAdmin.length)
+                // console.log(chkAdmin.length)
                 return res.json({ validation: false })
 
             }
             else {
-                console.log(chkAdmin.length)
+                // console.log(chkAdmin.length)
                 return res.json({ validation: true })
             }
         }
@@ -123,11 +123,11 @@ app.get('/getAdmin', async (req, res) => {
 /* Verify Email */
 const verifyOTP = (req, res, next) => {
     const token = req.cookies.otp
-    console.log(token)
+    // console.log(token)
     if (!token) {
         return res.json({ msg: "Token is not available", msg_type: "error" })
     } else {
-        console.log(token)
+        // console.log(token)
         req.otp = token
         next()
     }
@@ -203,7 +203,7 @@ app.post('/register/email', upload2.single('profilePic'), async (req, res) => {
     const State = req.body.state
     const zipCode = req.body.zipCode
     const profilePic = req.file.filename
-    console.log(password, username, phone, role, email, village, city, State, zipCode, profilePic)
+    // console.log(password, username, phone, role, email, village, city, State, zipCode, profilePic)
 
 
     if (role == 'admin') {
@@ -240,15 +240,16 @@ app.post('/register/email', upload2.single('profilePic'), async (req, res) => {
                     }
                 }
                 else {
-                    console.log("Similar Email Found 0")
+                    // console.log("Similar Email Found 0")
                     let hashPassword = await bcrypt.hash(password, 10)
-                    console.log("Hased Password : ", hashPassword)
+                    // console.log("Hased Password : ", hashPassword)
                     await sendEmail(email, `OTP Verification Completed, \n Your Email verification password is given below. Save it for future logins.`, `\n\n${password} \n`);
-                    console.log(username, role, email, hashPassword, phone, village, city, State, zipCode)
+                    // console.log(username, role, email, hashPassword, phone, village, city, State, zipCode)
                     const registerUser = 'INSERT INTO `userlogins` (username,role, email, password, phone,village,city,State,zipCode,profilePic) VALUES (?,?,?,?,?,?,?,?,?,?) '
                     const result = await db.promise().query(registerUser, [username, role, email, hashPassword, phone, village, city, State, zipCode, profilePic]);
                     if (!result) {
-                        console.log("not entered")
+                        console.log("Data not entered")
+                        return res.json({ msg: "Registration Declined . . .\n Backend Error. Try after sometime ", msg_type: "error" })
                     } else {
                         return res.json({ msg: "Registration Successful . . .\n Password is sent to your registered email. Please login for further process. ", msg_type: "good" })
                     }
@@ -372,7 +373,7 @@ app.post('/reset_password/:id/:forgottoken', (req, res) => {
 app.post('/login', (req, res) => {
     const email = req.body.email
     const password = req.body.password
-    console.log("Request Made...")
+    // console.log("Request Made...")
     // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/;
     const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,6}$/;
 
@@ -509,18 +510,20 @@ app.get('/get_data_to_admin/:getData', verifyUser, async (req, res) => {
     }
 });
 /* Get Logged in User Details */
-app.get('/getUserDetails2', async (req, res) => {
+app.get('/getUserDetails2/:email', async (req, res) => {
     try {
-        const users = await UserModelUpdate.findAll();
-        res.json(users);
+        const users = await UserModelUpdate.findOne({ where: { email: req.params.email } });
+        // console.log(users)
+        return res.json({ msg: 'Data Found', msg_type: 'good', users: users });
     } catch (err) {
         res.status(500).json({ msg: 'Error retrieving users', msg_type: 'error' });
     }
 })
-app.get('/getUserDetails', async (req, res) => {
+app.get('/getUserDetails/:email', async (req, res) => {
+    // console.log(req.params.email)
     try {
-        const users = await UserModel.findAll();
-        res.json(users);
+        const users = await UserModel.findOne({ where: { email: req.params.email } });
+        return res.json({ msg: 'Data Found', msg_type: 'good', users: users });
     } catch (err) {
         res.status(500).json({ msg: 'Error retrieving users', msg_type: 'error' });
     }

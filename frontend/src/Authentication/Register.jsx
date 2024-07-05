@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios"
+import './LoadingAnimation.css'
 
 
 import {
@@ -16,6 +17,7 @@ import {
 }
   from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
+import TypewriterEffect from '../Utils/TypeWriter';
 
 const states = [
   "Andhra Pradesh",
@@ -49,6 +51,7 @@ const states = [
 ]
 const roles = ['Admin', 'Seller', 'Customer']
 function Register() {
+  const [loading, setLoading] = useState(false)
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
@@ -76,8 +79,13 @@ function Register() {
         setNotAdmin(res.validation)
       })
       .catch(err => {
-        console.log(err)
+        console.log(err.code)
+        console.log(err.message)
+        console.log(err.name)
       })
+    setInterval(() => {
+      // setLoading(true)
+    }, 1500)
   })
 
   const handleRetypePasswordChange = (e) => {
@@ -109,33 +117,82 @@ function Register() {
 
   const HandleRegiserPage = (e) => {
     e.preventDefault()
-    const formData = new FormData();
-    formData.append('profilePic', profilePic)
-    formData.append('username', name)
-    formData.append('email', email)
-    formData.append('password', password)
-    formData.append('cpassword', cpassword)
-    formData.append('phone', phone)
-    formData.append('role', role)
-    formData.append('city', city)
-    formData.append('state', State)
-    formData.append('zipCode', zipCode)
-    formData.append('village', village)
+    setLoading(true)
+    if (!email || email === '' || email === null) {
+      setMsg('Register the Email First...')
+      setMsg_type('error')
+      setLoading(false)
+      return
+    }
+    else if (!phone || phone === '' || phone === null) {
+      setMsg('Enter the Phone please...')
+      setMsg_type('error')
+      setLoading(false)
+      return
+    }
+    else if (!name || name === '' || name === null) {
+      setMsg('Enter your good name please...')
+      setMsg_type('error')
+      setLoading(false)
+      return
+    }
+    else if (!village || village === '' || village === null) {
+      setMsg('Enter the Village, Tehsil, Post office etc. please...')
+      setMsg_type('error')
+      setLoading(false)
+      return
+    }
+    else if (!State || State === '' || State === null) {
+      setMsg('Select the State  please...')
+      setMsg_type('error')
+      setLoading(false)
+      return
+    }
+    else if (!profilePic || profilePic === '' || profilePic === null) {
+      setMsg('Select the Profile Picture  please...')
+      setMsg_type('error')
+      setLoading(false)
+      return
+    }
+    else if (!zipCode || zipCode === '' || zipCode === null) {
+      setMsg('Enter the Pin Code please...')
+      setMsg_type('error')
+      setLoading(false)
+      return
+    }
+    else {
+      const formData = new FormData();
+      formData.append('profilePic', profilePic)
+      formData.append('username', name)
+      formData.append('email', email)
+      formData.append('password', password)
+      formData.append('cpassword', cpassword)
+      formData.append('phone', phone)
+      formData.append('role', role)
+      formData.append('city', city)
+      formData.append('state', State)
+      formData.append('zipCode', zipCode)
+      formData.append('village', village)
 
-    // console.log(name, email, password, cpassword, village, city, State, zipCode, role, phone, gstIn, addharNo, addharCardpic, shopName, profilePic, shopPic, DLPan, shopLicense)
-    axios.post('http://localhost:5020/register/email', formData, {
-      headers: {
+      // console.log(name, email, password, cpassword, village, city, State, zipCode, role, phone, gstIn, addharNo, addharCardpic, shopName, profilePic, shopPic, DLPan, shopLicense)
+      axios.post('http://localhost:5020/register/email', formData, {
+        headers: {
           'Content-Type': 'multipart/form-data'
-      }
-  })
-      .then(res => {
-        console.log(res)
-        setMsg(res.data.msg)
-        setMsg_type(res.data.msg_type)
+        }
       })
-      .catch(err => {
-        console.log(err)
-      })
+        .then(res => {
+          // console.log(res)
+          setMsg(res.data.msg)
+          setMsg_type(res.data.msg_type)
+          setLoading(false)
+        })
+        .catch(err => {
+          console.log(err.code)
+          console.log(err.message)
+          console.log(err.name)
+          setLoading(false)
+        })
+    }
 
   }
   const [disableEmail, setDisableEmail] = useState(false)
@@ -146,36 +203,51 @@ function Register() {
 
   const handleSendOTP = (e) => {
     e.preventDefault()
+    setLoading(true)
     if (!email) {
       alert("Enter the Email First. . . ")
+      setLoading(false)
       return
     }
     const Confirm = window.confirm("Are you sure About Email Address, Please Check Again. You will not be able to change it again...")
     if (Confirm && email) {
       axios.post('http://localhost:5020/verifyEmail', { email: email })
         .then(res => {
-          console.log(res.data)
+          // console.log(res.data)
           setOtpSent(false)
           setDisableEmail(true)
+          setLoading(false)
         })
         .catch(err => {
-          console.log(err)
+          console.log(err.code)
+          console.log(err.message)
+          console.log(err.name)
+          setLoading(false)
         })
     }
   }
   const handleVerifyOTP = (e) => {
     e.preventDefault()
+    setLoading(true)
     console.log("Handle Verify OTP")
     // const Confirm = window.confirm("Are you sure About Email Address, Please Check Again. You will not be able to change it again...")
     if (!OTP || OTP === '') {
       alert(`Enter OTP first sent on your email ${email}...`)
+      setLoading(false)
     }
     else {
       axios.post('http://localhost:5020/verifyOTP', { email: email, OTP: OTP })
         .then(res => {
           setVerified(res.data.forwarding)
+          setLoading(false)
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+          console.log(err.code)
+          console.log(err.message)
+          console.log(err.name)
+          setLoading(false)
+        }
+        )
     }
   }
   const handleZip = (e) => {
@@ -194,16 +266,27 @@ function Register() {
       return
     }
   }
+  
   return (
     <MDBContainer fluid className='min-vh-100'>
 
-      <MDBCard className='text-black m-5' style={{ borderRadius: '' }}>
+      <MDBCard className='text-black m-5' style={{ borderRadius: '' }} disabled>
         <MDBCardBody>
           <center><p classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 " style={{ fontSize: '40px', fontWeight: '500' }}>Welcome to <strong style={{ color: '#ffc107' }}>RoboShop</strong></p></center>
           <hr />
           <MDBRow className='d-flex justify-content-center'>
             {
-              verified ?
+              verified ? <>
+                {loading && <div className={`border p-3 d-flex align-items-center justify-content-center easeInOut`} style={{ cursor: 'progress', background: `${loading ? "gray" : ""}`, filter: '', opacity: '0.85', width: '100%', height: '-webkit-fill-available', position: 'absolute', zIndex: '100', left: '0' }}>
+                  <h1 className='text-center p-2 text-white d-flex rounded-circle align-items-center justify-content-center' style={{ fontWeight: '', minHeight: '200px', minWidth: '200px', background: '', color: 'white', zIndex: '500' }}>
+                    <div>
+                      <div className='loadingAnimation'><b className='bi bi-arrow-repeat' style={{ fontSize: '80px', filter: 'drop-shadow(0px 0px 3px black)' }}></b></div>
+                      <div className='' style={{ minHeight: '50px', filter: 'drop-shadow(0px 5px 3px black)' }}>Loading
+                        {/* <TypewriterEffect texts={'⬆️'} typingSpeed={100} pauseDuration={10} /> */}
+                      </div>
+                    </div>
+                  </h1>
+                </div>}
                 <MDBCol md='12' lg='12' className='order-2 order-lg-1 d-flex flex-column align-items-center' style={{ maxWidth: '500px' }}>
                   {msg && <center className={`alert ${msg_type === 'error' ? 'alert-danger' : 'alert-success'}`}>{msg}</center>}
                   <div className='input-group my-2'>
@@ -294,29 +377,43 @@ function Register() {
                     <span>Already have an account? <a href="/login" className='text-decoration-none'>Login here</a></span>
                     <a href="/login"><button className='btn btn-info w-100'>Login</button></a>
                   </div>
-                </MDBCol> : <div>
-                  <MDBCol md='10' lg='6' className='d-flex align-items-center justify-content-center'>
-                    <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp' fluid />
+                </MDBCol>
+              </>
+
+                :
+                <div >
+                  {loading && <div className={`border p-3 d-flex align-items-center justify-content-center `} style={{ cursor: 'progress', background: `${loading ? "gray" : ""}`, filter: '', opacity: '0.85', width: '100%', height: '-webkit-fill-available', position: 'absolute', zIndex: '100', left: '0' }}>
+                    <h1 className='text-center p-2 text-white d-flex rounded-circle align-items-center justify-content-center' style={{ fontWeight: '', minHeight: '200px', minWidth: '200px', background: '', color: 'white', zIndex: '500' }}>
+                      <div>
+                        <div className='loadingAnimation'><b className='bi bi-arrow-repeat' style={{ fontSize: '80px', filter: 'drop-shadow(0px 0px 3px black)' }}></b></div>
+                        <div className='' style={{ minHeight: '50px', filter: 'drop-shadow(0px 5px 3px black)' }}>Loading
+                          {/* <TypewriterEffect texts={'⬆️'} typingSpeed={100} pauseDuration={10} /> */}
+                        </div>
+                      </div>
+                    </h1>
+                  </div>}
+                  <MDBCol md='6' lg='6' className='d-flex align-items-center justify-content-center'>
+                    <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp' style={{ filter: `${loading ? 'blur(5px)' : ''}` }} fluid />
                   </MDBCol>
                   <hr />
-                  <center className='fs-4  fw-semibold'>Enter your email for Registration and OTP validation</center>
+                  <center className='fs-4  fw-semibold' style={{ filter: `${loading ? 'blur(5px)' : ''}` }}>Enter your email for Registration and OTP validation</center>
                   <hr />
-                  <form>
-                    <div className='input-group my-2 mb-2'>
-                      <label>Enter your valid Email</label>
-                      <input className='w-100 form-control' disabled={disableEmail} onChange={e => setEmail(e.target.value)} required />
-                    </div>
-                  </form>
-                  {otpSent && <div className='btn btn-success' onClick={handleSendOTP}>Send OTP</div>}
+                  <MDBCol md='6'>
+                    <form style={{ filter: `${loading ? 'blur(5px)' : ''}` }}>
+                      <div className='input-group my-2 mb-2'>
+                        <label>Enter your valid Email</label>
+                        <input className='w-100 form-control' disabled={disableEmail} onChange={e => setEmail(e.target.value)} required />
+                      </div>
+                    </form>
+                  </MDBCol>
+                  {otpSent && <div className='btn btn-success' style={{ filter: `${loading ? 'blur(5px)' : ''}` }} onClick={handleSendOTP}>Send OTP</div>}
                   {!otpSent && <>
-                    <div className='input-group my-2 mb-2'>
+                    <div className='input-group my-2 mb-2' style={{ filter: `${loading ? 'blur(5px)' : ''}`, pointerEvents: `${loading ? 'none' : ''}` }}>
                       <label>Enter OTP</label>
                       <input className='w-100 form-control' onChange={e => setOTP(e.target.value)} />
                     </div>
                     <button className='btn btn-success' onClick={handleVerifyOTP}>Verify OTP</button></>}
-                  <Link to='/login' class="text-decoration-none ms-2 btn btn-primary">Login Here!</Link>
-
-
+                  <Link to='/login' class="text-decoration-none ms-2 btn btn-primary" style={{ filter: `${loading ? 'blur(5px)' : ''}` }}>Login Here!</Link>
                 </div>
             }
           </MDBRow>

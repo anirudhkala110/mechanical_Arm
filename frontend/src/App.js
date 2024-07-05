@@ -25,6 +25,7 @@ export const userContext = createContext()
 
 function App() {
   const [admin, setAdmin] = useState()
+  const [logedIn, setLogedIn] = useState(false)
   const [userLoginData, setUseLoginData] = useState([])
   useEffect(() => {
     axios.get('http://localhost:5020/loggin')
@@ -33,6 +34,7 @@ function App() {
         setUseLoginData(res.data)
         if (res.data.role === 'Admin')
           setAdmin(true)
+        setLogedIn(res.data.login)
       })
       .catch(err => {
         console.log(err)
@@ -56,12 +58,12 @@ function App() {
                 <Route exact path='/contact-us' element={<Contact />} />
                 <Route exact path='/services' element={<Services />} />
                 <Route exact path='/support' element={<Support />} />
-                <Route exact path='/profile/:user' element={<Profile />} />
-                <Route exact path='/profile/updated' element={<UpdatedProfile />} />
-                <Route exact path='/login' element={ <Login />} />
-                <Route exact path='/register' element={ <Register />} />
-                <Route exact path='/Registerpage' element={ <Register />} />
-                <Route exact path='/dashboard' element={<DashBoard />} />
+                <Route exact path='/profile/:user' element={logedIn ? <Profile /> : <Login />} />
+                <Route exact path='/profile/updated' element={logedIn ? <UpdatedProfile /> : <Login />} />
+                <Route exact path='/login' element={logedIn ? <Home /> : <Login />} />
+                <Route exact path='/register' element={<Register />} />
+                <Route exact path='/Registerpage' element={<Register />} />
+                <Route exact path='/dashboard' element={logedIn ? <DashBoard /> : <Login />} />
                 <Route exact path='/detail/:id/:machineName/:location/:uploadedBy' element={<Details />} />
                 <Route exact path='/contact-detail/:userName/:phone/:email/:address' element={<ContactDetails />} />
                 <Route path='*' element={<PageNoteFound />} />

@@ -9,10 +9,10 @@ const Login = () => {
   const [msg_type, setMsg_type] = useState()
   const HandleLogin = (e) => {
     e.preventDefault()
-    console.log(email, password)
+    // console.log(email, password)
     axios.post('http://localhost:5020/login', { email: email, password: password })
       .then(res => {
-        console.log(res)
+        // console.log(res)
         setMsg(res.data.msg)
         setMsg_type(res.data.msg_type)
 

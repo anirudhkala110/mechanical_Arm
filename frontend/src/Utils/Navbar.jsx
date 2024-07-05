@@ -13,7 +13,10 @@ const Navbar = () => {
     const handleLogout = () => {
         alert('Logging Out')
         axios.get('http://localhost:5020/logout')
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data)
+                window.location.href = '/'
+            })
             .catch(err => {
                 console.log(err)
             })
@@ -61,11 +64,11 @@ const Navbar = () => {
                                 Account
                             </button>
                             <ul className="dropdown-menu p-0 rounded-0" aria-labelledby="dropdownMenuButton">
-                                <NavLink to={`/profile/${userLoginData.role}`}><button className='btn rounded-0 technicalDropDownbtn' style={{ width: '100%' }}>Profile</button></NavLink>
+                                <NavLink to={`/profile/${userLoginData.email}`}><button className='btn rounded-0 technicalDropDownbtn' style={{ width: '100%' }}>Profile</button></NavLink>
                                 {/* <button className='btn btn-primary mt-1' style={{ width: '100%' }}>Dashboard</button> */}
-                                <NavLink to="/login"><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Login</button></NavLink>
+                                {!userLoginData.login && <NavLink to="/login"><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Login</button></NavLink>}
                                 <NavLink to='/register'><button className='btn rounded-0 technicalDropDownbtn ' style={{ width: '100%' }}>Sign Up</button></NavLink>
-                                <button className='btn btn-danger rounded-0' style={{ width: '100%' }} onClick={handleLogout}>Logout</button>
+                                {userLoginData.login &&  <button className='btn btn-danger rounded-0' style={{ width: '100%' }} onClick={handleLogout}>Logout</button>}
                             </ul>
                         </div>
                     </div>
@@ -87,7 +90,7 @@ const Navbar = () => {
                         <NavLink to='/contact-us' className='btn  my-1 w-100 rounded-0 linkTabs'>Contact</NavLink>
                         <NavLink to='/all-products' className="btn  my-1 w-100 rounded-0 linkTabs" type="button" >Products</NavLink>
                         <NavLink to='/services' className='btn  my-1 w-100 rounded-0 linkTabs'>Services</NavLink>
-                        <NavLink to={`/profile/${userLoginData.role}`} className='btn  my-1 w-100 rounded-0 linkTabs'>Profile</NavLink>
+                        <NavLink to={`/profile/${userLoginData.email}`} className='btn  my-1 w-100 rounded-0 linkTabs'>Profile</NavLink>
                         <NavLink to='/dashboard' className='btn  my-1 w-100 rounded-0 linkTabs'>Dashboard</NavLink>
                         <NavLink to='/login' className='w-100 btn my-1 rounded-0 linkTabs'>Login</NavLink>
                         <NavLink to='/register' className='w-100 btn my-1  rounded-0 linkTabs'>Sign Up</NavLink>

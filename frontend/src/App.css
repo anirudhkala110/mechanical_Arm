@@ -20,6 +20,12 @@ html {
   font-family: "Poppins" !important;
 }
 
+
+.setLoading {
+  pointer-events: none;
+  cursor: progress;
+}
+
 body {
   font-family: "Poppins" !important;
 }
